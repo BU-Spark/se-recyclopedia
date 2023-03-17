@@ -8,7 +8,7 @@ class LogoHeader extends StatelessWidget {
     return AppBar(
       flexibleSpace: Row(
         children: [
-          Icon(Icons.abc),
+          Icon(Icons.recycling),
           Column(
             children: [Text('Flutter'), Text('description')],
           )
