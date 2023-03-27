@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:recyclopedia/screens/all.dart';
 
-class MyHomePage extends StatefulWidget {
+class MainPage extends StatefulWidget {
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MainPage> createState() => _MainPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MainPageState extends State<MainPage> {
   var selectedIndex = 0;
 
   @override
@@ -14,10 +14,10 @@ class _MyHomePageState extends State<MyHomePage> {
     Widget page;
     switch (selectedIndex) {
       case 0:
-        page = HomePage();
+        page = Home();
         break;
       case 1:
-        page = MapPage();
+        page = CampusMap();
         break;
       case 2:
         page = ItemModal("paper","",["paper bags are recycleable. They belong in the green bins...","fold into airplane"]);
