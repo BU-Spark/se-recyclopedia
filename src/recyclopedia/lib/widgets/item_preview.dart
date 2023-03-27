@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recyclopedia/global_configuration.dart';
 
 class ItemPreview extends Container {
   final Map item;
@@ -26,7 +27,7 @@ class ItemPreview extends Container {
         children: [
           Container(
               child: Image.asset(
-            "images/paper.jpeg",
+            defaultItemModalImage,
             // item["image"],
             fit: BoxFit.contain,
           )),

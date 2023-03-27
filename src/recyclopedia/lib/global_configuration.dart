@@ -1,0 +1,1 @@
+final defaultItemModalImage = "images/paper.jpeg";
