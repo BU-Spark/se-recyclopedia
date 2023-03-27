@@ -20,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
         page = MapPage();
         break;
       case 2:
-        page = ResourcesPage();
+        page = ItemModal("paper","",["paper bags are recycleable. They belong in the green bins...","fold into airplane"]);
         break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
