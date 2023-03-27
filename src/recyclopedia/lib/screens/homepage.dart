@@ -1,32 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:recyclopedia/global_configuration.dart';
-import 'package:recyclopedia/main.dart';
-import 'package:recyclopedia/widgets/all.dart';
 
-class Home extends StatelessWidget {
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
-    var pair = appState.current;
-
-    IconData icon;
-    if (appState.favorites.contains(pair)) {
-      icon = Icons.favorite;
-    } else {
-      icon = Icons.favorite_border;
-    }
-
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          AppHeader(),
-          // BigCard(pair: pair),
-          SizedBox(height: 10),
-
-          Text("Popular Category",
+    return MaterialApp(
+        home: Scaffold(
+      body: SafeArea(
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+            Text("Popular Category",
                 style: GoogleFonts.poppins(
                     fontSize: 27.0, fontWeight: FontWeight.bold)),
             SingleChildScrollView(
@@ -89,28 +80,15 @@ class Home extends StatelessWidget {
                 ],
               ),
             )
-            
-          // Row(
-          //   mainAxisSize: MainAxisSize.min,
-          //   children: [
-          //     ElevatedButton.icon(
-          //       onPressed: () {
-          //         appState.toggleFavorite();
-          //       },
-          //       icon: Icon(icon),
-          //       label: Text('Like'),
-          //     ),
-          //     SizedBox(width: 10),
-          //     ElevatedButton(
-          //       onPressed: () {
-          //         appState.getNext();
-          //       },
-          //       child: Text('Next'),
-          //     ),
-          //   ],
-          // ),
+          ])),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Campus Map'),
+          BottomNavigationBarItem(icon: Icon(Icons.newspaper), label: 'Resources')
         ],
       ),
-    );
+    ));
   }
 }
+
