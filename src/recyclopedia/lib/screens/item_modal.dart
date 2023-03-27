@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recyclopedia/widgets/heading1.dart';
-import 'package:recyclopedia/widgets/item_preview.dart';
+import 'package:recyclopedia/widgets/all.dart';
 
 class ItemModal extends StatelessWidget {
   final String itemName;
@@ -21,7 +20,7 @@ class ItemModal extends StatelessWidget {
       children: [
         Heading1(itemName),
         ItemPreview({"name": itemName, "image": itemImage}),
-        Heading1("more information"),
+        Heading2("more information"),
         SizedBox(
           height: 100,
           
