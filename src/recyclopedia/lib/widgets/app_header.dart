@@ -10,6 +10,7 @@ class AppHeader extends StatelessWidget {
     return AppBar(
       title: Column(
         children: [
+          SizedBox(height: 30),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Flexible(child: appLogo),
             Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -18,14 +19,17 @@ class AppHeader extends StatelessWidget {
                   style: GoogleFonts.poppins(fontSize: 15.0)),
             ])
           ]),
-          SizedBox(height: 20),
-          TextField(
-            decoration: InputDecoration(
-                filled: true,
-                border: OutlineInputBorder(),
-                fillColor: Colors.white,
-                prefixIcon: Icon(Icons.search),
-                hintText: 'Search...'),
+          // SizedBox(height: 20),
+          Container(
+            padding: EdgeInsets.all(20.0),
+            child: TextField(
+              decoration: InputDecoration(
+                  filled: true,
+                  border: OutlineInputBorder(),
+                  fillColor: Colors.white,
+                  prefixIcon: Icon(Icons.search),
+                  hintText: 'Search...'),
+            ),
           ),
         ],
       ),

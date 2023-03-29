@@ -5,7 +5,7 @@ import 'package:recyclopedia/global_configuration.dart';
 void main() {
   runApp(MyApp());
 }
-
+@deprecated
 class MyApp extends StatelessWidget {
 
 

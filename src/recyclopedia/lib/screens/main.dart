@@ -55,7 +55,7 @@ class _MainPageState extends State<MainPage> {
             // ),
             Expanded(
               child: Container(
-                color: Theme.of(context).colorScheme.primaryContainer,
+                // color: Theme.of(context).colorScheme.primaryContainer,
                 child: page,
               ),
             ),
