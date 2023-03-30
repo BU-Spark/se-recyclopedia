@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:recyclopedia/global_configuration.dart';
 import 'package:recyclopedia/main.dart';
+import 'package:recyclopedia/screens/item_modal.dart';
 import 'package:recyclopedia/widgets/all.dart';
 
 class Home extends StatelessWidget {
@@ -48,7 +49,9 @@ class Home extends StatelessWidget {
                       Map item = list[index];
                       return GestureDetector(
                         behavior: HitTestBehavior.opaque,
-                        onTap: () {},
+                        onTap: () {
+                          _navigateToNewPage(context, item);
+                        },
                         child: Container(
                           alignment: Alignment.center,
                           padding: const EdgeInsets.all(10),
@@ -112,4 +115,16 @@ class Home extends StatelessWidget {
       ),
     );
   }
+}
+
+// Define a function that navigates to a new page
+void _navigateToNewPage(BuildContext context, Map item) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+        builder: (context) => ItemModal(item["name"], item["image"], [
+              "paper bags are recycleable. They belong in the green bins...",
+              "fold into airplane"
+            ])),
+  );
 }
