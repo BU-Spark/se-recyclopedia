@@ -20,7 +20,7 @@ class _MainPageState extends State<MainPage> {
         page = CampusMap();
         break;
       case 2:
-        page = ItemModal("paper","",["paper bags are recycleable. They belong in the green bins...","fold into airplane"]);
+        page = CampusMap();
         break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');

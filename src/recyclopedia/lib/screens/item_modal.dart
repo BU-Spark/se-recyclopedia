@@ -17,7 +17,7 @@ class ItemModal extends StatelessWidget {
     return Material(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('歪比巴卜'),
+          title: Text(""),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {

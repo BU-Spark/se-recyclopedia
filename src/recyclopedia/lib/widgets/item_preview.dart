@@ -27,8 +27,8 @@ class ItemPreview extends Container {
         children: [
           Container(
               child: Image.asset(
-            defaultItemModalImage,
-            // item["image"],
+            // defaultItemModalImage,
+            item["image"],
             fit: BoxFit.contain,
           )),
           Text(
