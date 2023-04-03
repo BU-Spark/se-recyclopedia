@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:recyclopedia/global_configuration.dart';
 import 'package:recyclopedia/main.dart';
+import 'package:recyclopedia/screens/all_categories.dart';
 import 'package:recyclopedia/screens/item_modal.dart';
 import 'package:recyclopedia/widgets/all.dart';
 import 'package:collection/collection.dart';
@@ -22,18 +23,18 @@ class Home extends StatelessWidget {
     }
 
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          AppHeader(),
-          // BigCard(pair: pair),
-          SizedBox(height: 10),
-          Text("Popular Category",
-              style: GoogleFonts.poppins(
-                  fontSize: 27.0, fontWeight: FontWeight.bold)),
-          SizedBox(height: 10),
-          SingleChildScrollView(
-            child: Column(
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            AppHeader(),
+            // BigCard(pair: pair),
+            SizedBox(height: 10),
+            Text("Popular Category",
+                style: GoogleFonts.poppins(
+                    fontSize: 27.0, fontWeight: FontWeight.bold)),
+            SizedBox(height: 10),
+            Column(
               children: <Widget>[
                 Container(
                   padding: const EdgeInsets.only(left: 15, right: 15),
@@ -54,30 +55,31 @@ class Home extends StatelessWidget {
                     itemCount: popularCategoryList.length,
                   ),
                 ),
+                AllCategory()
               ],
-            ),
-          )
-
-          // Row(
-          //   mainAxisSize: MainAxisSize.min,
-          //   children: [
-          //     ElevatedButton.icon(
-          //       onPressed: () {
-          //         appState.toggleFavorite();
-          //       },
-          //       icon: Icon(icon),
-          //       label: Text('Like'),
-          //     ),
-          //     SizedBox(width: 10),
-          //     ElevatedButton(
-          //       onPressed: () {
-          //         appState.getNext();
-          //       },
-          //       child: Text('Next'),
-          //     ),
-          //   ],
-          // ),
-        ],
+            )
+      
+            // Row(
+            //   mainAxisSize: MainAxisSize.min,
+            //   children: [
+            //     ElevatedButton.icon(
+            //       onPressed: () {
+            //         appState.toggleFavorite();
+            //       },
+            //       icon: Icon(icon),
+            //       label: Text('Like'),
+            //     ),
+            //     SizedBox(width: 10),
+            //     ElevatedButton(
+            //       onPressed: () {
+            //         appState.getNext();
+            //       },
+            //       child: Text('Next'),
+            //     ),
+            //   ],
+            // ),
+          ],
+        ),
       ),
     );
   }
