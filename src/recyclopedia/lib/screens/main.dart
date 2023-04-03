@@ -20,7 +20,7 @@ class _MainPageState extends State<MainPage> {
         page = CampusMap();
         break;
       case 2:
-        page = CampusMap();
+        page = ResourcesPage();
         break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
