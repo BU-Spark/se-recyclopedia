@@ -55,10 +55,16 @@ class Home extends StatelessWidget {
                     itemCount: popularCategoryList.length,
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text("See All",
+                      style: GoogleFonts.poppins(
+                          fontSize: 15.0, fontWeight: FontWeight.bold)),
+                ),
                 AllCategory()
               ],
             )
-      
+
             // Row(
             //   mainAxisSize: MainAxisSize.min,
             //   children: [
