@@ -48,10 +48,10 @@ class Home extends StatelessWidget {
                       childAspectRatio: 1 / 1.1,
                     ),
                     itemBuilder: (context, index) {
-                      Map item = categoryList[index];
+                      Map item = popularCategoryList[index];
                       return ClickableTrashItem(item);
                     },
-                    itemCount: categoryList.length,
+                    itemCount: popularCategoryList.length,
                   ),
                 ),
               ],

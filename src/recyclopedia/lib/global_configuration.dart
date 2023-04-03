@@ -8,7 +8,16 @@ Image appLogo = const Image(
   width: 75.0,
 );
 
+List popularCategoryList = [
+  {"image": "images/paper.jpg", "name": "Paper Bags"},
+  {"image": "images/paper1.jpg", "name": "Plastic Cups"},
+  {"image": "images/paper2.jpg", "name": "Boxes"},
+  {"image": "images/paper3.jpg", "name": "Batteries"}
+];
+
 List categoryList = [
+  {"image": "images/paper.jpg", "name": "Paper Bags"},
+  {"image": "images/paper.jpg", "name": "Paper Bags"},
   {"image": "images/paper.jpg", "name": "Paper Bags"},
   {"image": "images/paper1.jpg", "name": "Plastic Cups"},
   {"image": "images/paper2.jpg", "name": "Boxes"},
