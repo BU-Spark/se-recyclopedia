@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:recyclopedia/global_configuration.dart';
 import 'package:collection/collection.dart';
 import 'package:recyclopedia/widgets/all.dart';
@@ -7,13 +8,16 @@ import 'package:recyclopedia/widgets/all.dart';
 class AllCategory extends StatelessWidget {
   AllCategory({super.key});
 
-  final groupedData = groupBy(categoryList, (item) => item['name']);
+  final groupedData = groupBy(categoryList, (item) => item['name'][0]);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("all categories"),
+        SizedBox(height: 20),
+        Text("All Category",
+                style: GoogleFonts.poppins(
+                    fontSize: 27.0, fontWeight: FontWeight.bold)),
         Container(
           padding: const EdgeInsets.only(left: 15, right: 15),
           child: GridView.builder(
@@ -23,7 +27,7 @@ class AllCategory extends StatelessWidget {
                 crossAxisCount: 1,
                 mainAxisSpacing: 20,
                 crossAxisSpacing: 20,
-                childAspectRatio: 1 / 1.1,
+                childAspectRatio: 1 / 1.2,
               ),
               itemCount: groupedData.length, // Total number of sections
               itemBuilder: (BuildContext context, int sectionIndex) {
