@@ -16,14 +16,67 @@ List popularCategoryList = [
 ];
 
 List categoryList = [
-  {"image": "images/paper.jpg", "name": "Paper Bags"},
-  {"image": "images/paper1.jpg", "name": "Plastic Cups"},
-  {"image": "images/paper2.jpg", "name": "Boxes"},
-  {"image": "images/paper3.jpg", "name": "Batteries"},
-  {"image": "images/paper.jpg", "name": "Paper Bags"},
-  {"image": "images/paper1.jpg", "name": "Plastic Cups"},
-  {"image": "images/paper2.jpg", "name": "Boxes"},
-  {"image": "images/paper3.jpg", "name": "Batteries"},
-  {"image": "images/paper.jpg", "name": "A"},
-  {"image": "images/paper1.jpg", "name": "A"},
+  {
+    "image": "images/paper.jpg",
+    "name": "Cardboard",
+    "description": [
+      "Flatten/nest when possible. Remove all foam, bubble wrap, air pillows.",
+      "Remove as much tape as you can but, generally speaking, tape is okay."
+    ]
+  },
+  {
+    "image": "images/paper1.jpg",
+    "name": "Paper",
+    "description": ["Staples and paper clips are okay."]
+  },
+  {
+    "image": "images/paper2.jpg",
+    "name": "Food boxes",
+    "description": ["Remove all liners."]
+  },
+  {
+    "image": "images/paper3.jpg",
+    "name": "Mail",
+    "description": ["Remove free samples."]
+  },
+  {
+    "image": "images/paper.jpg",
+    "name": "Beverage cans",
+    "description": ["Empty and rinse."]
+  },
+  {
+    "image": "images/paper1.jpg",
+    "name": "Food cans",
+    "description": ["Rinse or wipe clean all food/residue. Replace lid."]
+  },
+  {
+    "image": "images/paper2.jpg",
+    "name": "Glass bottle",
+    "description": ["Rinse or wipe clean all food/residue."]
+  },
+  {
+    "image": "images/paper3.jpg",
+    "name": "Jars (glass and plastic)",
+    "description": [
+      "Rinse or wipe clean all food/residue. Replace lid.",
+      "There is NO need to remove label."
+    ]
+  },
+  {
+    "image": "images/paper.jpg",
+    "name": "Jugs",
+    "description": ["Rinse or wipe clean all food/residue. Replace lid."]
+  },
+  {
+    "image": "images/paper1.jpg",
+    "name": "Plastic bottles and caps",
+    "description": [
+      "Empty and replace cap.",
+      "There is a five cent deposit on carbonated soft drink, beer, malt beverage, and sparkling water containers sold in Massachusetts. Items that meet that description",
+      "can be returned for a \$0.05 deposit at a local grocery store or redemption center. Find a redemption center near you.",
+      "Or, you can put in your recycling bin.",
+      "We have recently gotten questions about whether the plastic sleeves on plastic bottles should be removed and we are updating our response.  For labels that are clearly asking to be removed, the answer is YES, remove them.  These labels can impact the recyclability of plastic containers because during the sorting process the labels can mask the type of plastic resin the bottle is made from, which may result in the bottles being missorted and/or not being recycled.",
+      "Normally, labels on plastic containers aren’t problematic and can simply remain on the bottle, jar, jug or tub.  Most labels are either recycled with the container if it’s the same resin or handled by the reclaimer.  So, if you see a bottle, jar, jug or tub with a label that asks you to remove it, please do!"
+    ]
+  },
 ];
