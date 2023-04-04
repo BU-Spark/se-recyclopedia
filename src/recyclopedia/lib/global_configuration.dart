@@ -8,16 +8,71 @@ Image appLogo = const Image(
   width: 75.0,
 );
 
-List popularCategoryList = [
-  {"image": "images/paper.jpg", "name": "Paper Bags"},
-  {"image": "images/paper1.jpg", "name": "Plastic Cups"},
-  {"image": "images/paper2.jpg", "name": "Boxes"},
-  {"image": "images/paper3.jpg", "name": "Batteries"}
-];
+// List popularCategoryList = [
+//   {"image": "images/paper.jpg", "name": "Paper Bags"},
+//   {"image": "images/paper1.jpg", "name": "Plastic Cups"},
+//   {"image": "images/paper2.jpg", "name": "Boxes"},
+//   {"image": "images/paper3.jpg", "name": "Batteries"}
+// ];
+
+List popularCategoryList = categoryList
+    .where((x) =>
+        ["Paper", "Cans", "Boxes", "Batteries"].contains(x["name"]))
+    .toList();
 
 List categoryList = [
   {
-    "image": "images/paper.jpg",
+    "image": "images/Chopsticks.png",
+    "name": "Chopsticks",
+    "description": [
+      "Put this item in your trash bin."
+    ]
+  },
+  {
+    "image": "images/Aluminum.png",
+    "name": "Aluminum containers",
+    "description": [
+      "Rinse or wipe clean all food or other residue.",
+      "Put this item in your trash bin."
+    ]
+  },
+  {
+    "image": "images/Batteries.png",
+    "name": "Batteries",
+    "description": [
+      "Lithium Batteries: Hold for a local household hazardous waste collection day. Call your local Recycling Center or City/Town Hall for more information."
+    ]
+  },
+  {
+    "image": "images/Balloons.png",
+    "name": "Balloons",
+    "description": [
+      "Put this item in your trash bin."
+    ]
+  },
+  {
+    "image": "images/BerryBaskets.png",
+    "name": "Berry baskets",
+    "description": [
+      "Put this item in your trash bin."
+    ]
+  },
+  {
+    "image": "images/Boxes.png",
+    "name": "Boxes",
+    "description": [
+      "Put this item in your trash bin."
+    ]
+  },
+  {
+    "image": "images/PaperCups.png",
+    "name": "Paper cups",
+    "description": [
+      "Put this item in your trash bin."
+    ]
+  },
+  {
+    "image": "images/Cardboard.png",
     "name": "Cardboard",
     "description": [
       "Flatten/nest when possible. Remove all foam, bubble wrap, air pillows.",
@@ -25,37 +80,37 @@ List categoryList = [
     ]
   },
   {
-    "image": "images/paper1.jpg",
+    "image": "images/Paper.jpg",
     "name": "Paper",
     "description": ["Staples and paper clips are okay."]
   },
   {
-    "image": "images/paper2.jpg",
+    "image": "images/FoodBox.png",
     "name": "Food boxes",
     "description": ["Remove all liners."]
   },
   {
-    "image": "images/paper3.jpg",
+    "image": "images/Mail.png",
     "name": "Mail",
     "description": ["Remove free samples."]
   },
   {
-    "image": "images/paper.jpg",
-    "name": "Beverage cans",
+    "image": "images/Cans.png",
+    "name": "Cans",
     "description": ["Empty and rinse."]
   },
   {
-    "image": "images/paper1.jpg",
+    "image": "images/FoodCans.png",
     "name": "Food cans",
     "description": ["Rinse or wipe clean all food/residue. Replace lid."]
   },
   {
-    "image": "images/paper2.jpg",
+    "image": "images/GlassBottle.png",
     "name": "Glass bottle",
     "description": ["Rinse or wipe clean all food/residue."]
   },
   {
-    "image": "images/paper3.jpg",
+    "image": "images/Jars.png",
     "name": "Jars (glass and plastic)",
     "description": [
       "Rinse or wipe clean all food/residue. Replace lid.",
@@ -63,12 +118,12 @@ List categoryList = [
     ]
   },
   {
-    "image": "images/paper.jpg",
+    "image": "images/Jug.png",
     "name": "Jugs",
     "description": ["Rinse or wipe clean all food/residue. Replace lid."]
   },
   {
-    "image": "images/paper1.jpg",
+    "image": "images/PlasticBottle.png",
     "name": "Plastic bottles and caps",
     "description": [
       "Empty and replace cap.",
