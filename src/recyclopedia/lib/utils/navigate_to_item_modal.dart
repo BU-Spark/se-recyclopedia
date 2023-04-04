@@ -7,9 +7,7 @@ void navigateToItemModal(BuildContext context, Map item) {
   Navigator.push(
     context,
     MaterialPageRoute(
-        builder: (context) => ItemModal(item["name"], item["image"], [
-              "paper bags are recycleable. They belong in the green bins...",
-              "fold into airplane"
-            ])),
+        builder: (context) =>
+            ItemModal(item["name"], item["image"], item["description"])),
   );
 }
