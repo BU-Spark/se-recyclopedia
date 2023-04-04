@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Heading1 extends Text {
-  const Heading1(super.data, {super.key});
+  Heading1(super.data, {super.key});
 
   @override
   final TextStyle style =
-      const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, );
+      GoogleFonts.poppins(fontSize: 27.0, fontWeight: FontWeight.bold);
       
   @override
   final TextAlign align = TextAlign.left;

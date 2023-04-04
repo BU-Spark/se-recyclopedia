@@ -25,37 +25,49 @@ class ItemModal extends StatelessWidget {
             },
           ),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Heading1(itemName),
-            ItemPreview({"name": itemName, "image": itemImage}),
-            Heading2("more information"),
-            SizedBox(
-              height: 100,
-              child: ListView.builder(
-                scrollDirection: Axis.vertical,
-                // Let the ListView know how many items it needs to build.
-                itemCount: recycleInformation.length,
-                // Provide a builder function. This is where the magic happens.
-                // Convert each item into a widget based on the type of item it is.
-                itemBuilder: (context, index) {
-                  final item = recycleInformation[index];
-                  return ListTile(
-                      leading: Icon(Icons.recycling), title: Text(item));
-                },
+        body: Container(
+          padding: const EdgeInsets.only(left: 15, right: 15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                  padding: const EdgeInsets.only(bottom: 15),
+                  child: Heading1(itemName)),
+              ItemPreview({"name": itemName, "image": itemImage}),
+              Container(
+                  padding: const EdgeInsets.only(top: 30, bottom: 15),
+                  child: Heading2("more information")),
+              Expanded(
+                // height: 100,
+                child: ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  // Let the ListView know how many items it needs to build.
+                  itemCount: recycleInformation.length,
+                  // Provide a builder function. This is where the magic happens.
+                  // Convert each item into a widget based on the type of item it is.
+                  itemBuilder: (context, index) {
+                    final item = recycleInformation[index];
+                    return ListTile(
+                        leading: const Icon(Icons.recycling,
+                            color: Color(0xff5FA833)),
+                        title: Text(item));
+                  },
+                ),
               ),
-            ),
-            Center(
-              child: ElevatedButton(
-                style: style,
-                onPressed: () {},
-                child: const Text('Find Bin'),
+              Center(
+                child: ElevatedButton(
+                  style: style,
+                  onPressed: () {},
+                  child: const Text('Find Bin'),
+                ),
               ),
-            ),
-            Container(),
-            Container()
-          ],
+              SizedBox(
+                height: 50,
+              ),
+              Container(),
+              Container()
+            ],
+          ),
         ),
       ),
     );

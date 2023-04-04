@@ -56,7 +56,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(15.0),
                   child: Text("See All",
                       style: GoogleFonts.poppins(
                           fontSize: 15.0, fontWeight: FontWeight.bold)),
@@ -64,26 +64,6 @@ class Home extends StatelessWidget {
                 AllCategory()
               ],
             )
-
-            // Row(
-            //   mainAxisSize: MainAxisSize.min,
-            //   children: [
-            //     ElevatedButton.icon(
-            //       onPressed: () {
-            //         appState.toggleFavorite();
-            //       },
-            //       icon: Icon(icon),
-            //       label: Text('Like'),
-            //     ),
-            //     SizedBox(width: 10),
-            //     ElevatedButton(
-            //       onPressed: () {
-            //         appState.getNext();
-            //       },
-            //       child: Text('Next'),
-            //     ),
-            //   ],
-            // ),
           ],
         ),
       ),
