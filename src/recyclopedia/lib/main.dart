@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// not used
 class MyAppState extends ChangeNotifier {
   var current = WordPair.random();
 

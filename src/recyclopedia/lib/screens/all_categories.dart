@@ -5,6 +5,7 @@ import 'package:collection/collection.dart';
 import 'package:recyclopedia/widgets/all.dart';
 
 // TODO: each section is taking too much vertical space
+// widget for showing all categories in alphabetical groups
 class AllCategory extends StatelessWidget {
   AllCategory({super.key});
 
@@ -13,6 +14,7 @@ class AllCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      // title "All Category", All Categories from database
       children: [
         SizedBox(height: 20),
         Text("All Category",

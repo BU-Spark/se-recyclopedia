@@ -113,15 +113,6 @@ List categoryList = [
   }
 ];
 
-String defaultItemModalImage = "images/paper.jpg";
-
-// List popularCategoryList = [
-//   {"image": "images/paper.jpg", "name": "Paper Bags"},
-//   {"image": "images/paper1.jpg", "name": "Plastic Cups"},
-//   {"image": "images/paper2.jpg", "name": "Boxes"},
-//   {"image": "images/paper3.jpg", "name": "Batteries"}
-// ];
-
 List popularCategoryList = categoryList
     .where((x) => ["Paper", "Cans", "Boxes", "Batteries"].contains(x["name"]))
     .toList();

@@ -15,17 +15,12 @@ class Home extends StatelessWidget {
     var categories = categoryListState.categories;
     final groupedData = groupBy(categoryList, (item) => item['name']);
 
-    // IconData icon;
-    // if (appState.favorites.contains(pair)) {
-    //   icon = Icons.favorite;
-    // } else {
-    //   icon = Icons.favorite_border;
-    // }
-
     return Center(
+      // makes the home page scrollable
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          // title "Popular categories", four default Popular categories, widget AllCategory
           children: [
             AppHeader(),
             SizedBox(height: 10),
@@ -39,6 +34,7 @@ class Home extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 15, right: 15),
                   child: GridView.builder(
                     shrinkWrap: true,
+                    // makes the popular category part not scrollable
                     physics: const NeverScrollableScrollPhysics(),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
@@ -56,6 +52,7 @@ class Home extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
+                  // TODO: Add transition to All Category view
                   child: Text("See All",
                       style: GoogleFonts.poppins(
                           fontSize: 15.0, fontWeight: FontWeight.bold)),
