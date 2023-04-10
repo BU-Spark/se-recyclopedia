@@ -11,16 +11,16 @@ import 'package:collection/collection.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
-    var pair = appState.current;
+    var categoryListState = context.watch<CategoryListState>();
+    var categories = categoryListState.categories;
     final groupedData = groupBy(categoryList, (item) => item['name']);
 
-    IconData icon;
-    if (appState.favorites.contains(pair)) {
-      icon = Icons.favorite;
-    } else {
-      icon = Icons.favorite_border;
-    }
+    // IconData icon;
+    // if (appState.favorites.contains(pair)) {
+    //   icon = Icons.favorite;
+    // } else {
+    //   icon = Icons.favorite_border;
+    // }
 
     return Center(
       child: SingleChildScrollView(
@@ -28,7 +28,6 @@ class Home extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             AppHeader(),
-            // BigCard(pair: pair),
             SizedBox(height: 10),
             Text("Popular Category",
                 style: GoogleFonts.poppins(
@@ -48,11 +47,11 @@ class Home extends StatelessWidget {
                       crossAxisSpacing: 20,
                       childAspectRatio: 1 / 1.1,
                     ),
+                    itemCount: categories.length,
                     itemBuilder: (context, index) {
-                      Map item = popularCategoryList[index];
+                      Map item = categories[index];
                       return ClickableTrashItem(item);
                     },
-                    itemCount: popularCategoryList.length,
                   ),
                 ),
                 Padding(
@@ -68,5 +67,22 @@ class Home extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class CategoryListState extends ChangeNotifier {
+  List<dynamic> categories = popularCategoryList;
+
+  void search(String keywords) {
+    if (keywords.isEmpty) {
+      categories = categoryList;
+    } else {
+      categories = categoryList
+          .where((item) =>
+              item["name"].toLowerCase().contains(keywords.toLowerCase()))
+          .cast<Map<String, dynamic>>()
+          .toList();
+    }
+    notifyListeners();
   }
 }

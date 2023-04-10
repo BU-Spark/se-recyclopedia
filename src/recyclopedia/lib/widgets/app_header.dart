@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:recyclopedia/global_configuration.dart';
+import 'package:recyclopedia/screens/home.dart';
 
 class AppHeader extends StatelessWidget {
   const AppHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var categoryListState = context.watch<CategoryListState>();
     return AppBar(
       title: Column(
         children: [
@@ -23,6 +26,7 @@ class AppHeader extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(20.0),
             child: TextField(
+              onChanged: (value) => categoryListState.search(value),
               decoration: InputDecoration(
                   filled: true,
                   border: OutlineInputBorder(),

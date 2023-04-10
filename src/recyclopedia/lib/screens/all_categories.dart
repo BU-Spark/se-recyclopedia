@@ -16,8 +16,8 @@ class AllCategory extends StatelessWidget {
       children: [
         SizedBox(height: 20),
         Text("All Category",
-                style: GoogleFonts.poppins(
-                    fontSize: 27.0, fontWeight: FontWeight.bold)),
+            style: GoogleFonts.poppins(
+                fontSize: 27.0, fontWeight: FontWeight.bold)),
         Container(
           padding: const EdgeInsets.only(left: 15, right: 15),
           child: GridView.builder(
@@ -37,6 +37,8 @@ class AllCategory extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Text(sectionName),
+                    // Text(MediaQuery.of(context).size.width.toString()),
+                    // Text(((sectionData.length + 1) ~/2 *(MediaQuery.of(context).size.width / 2)).toString()),
                     GridView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),

@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => MyAppState()),
         ChangeNotifierProvider(create: (context) => ResourcesList()),
+        ChangeNotifierProvider(create: (context) => CategoryListState()),
       ],
       child: MaterialApp(
         title: 'Namer App',
