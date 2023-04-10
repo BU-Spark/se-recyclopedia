@@ -33,10 +33,13 @@ class AllCategory extends StatelessWidget {
               itemBuilder: (BuildContext context, int sectionIndex) {
                 final sectionName = groupedData.keys.toList()[sectionIndex];
                 final sectionData = groupedData[sectionName]!;
+                // the column that I can't limit it's height, bad column
                 return Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
+                    // alphabetical section name
                     Text(sectionName),
+                    // trying to do dynamic height, printing out values
                     // Text(MediaQuery.of(context).size.width.toString()),
                     // Text(((sectionData.length + 1) ~/2 *(MediaQuery.of(context).size.width / 2)).toString()),
                     GridView.builder(
