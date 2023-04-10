@@ -91,7 +91,7 @@ List categoryList = [
   },
   {
     "name": "Paper",
-    "image": "images/Paper.jpg",
+    "image": "images/Paper.png",
     "description": ["Staples and paper clips are okay."]
   },
   {
