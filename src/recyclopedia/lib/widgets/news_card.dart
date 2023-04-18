@@ -1,16 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class NewsCard extends StatelessWidget {
-  final String imgUrl, title, desc, content /*, postUrl*/;
+  //final Image imgUrl;
+  final String imgUrl, title, desc, postUrl;
 
-  const NewsCard(
-      {Key? key,
-      required this.imgUrl,
-      required this.desc,
-      required this.title,
-      required this.content /*,
-     required this.postUrl*/
-      });
+  const NewsCard({
+    Key? key,
+    required this.imgUrl,
+    required this.desc,
+    required this.title,
+    required this.postUrl,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class NewsCard extends StatelessWidget {
           ClipRRect(
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-              child: Image.network(
+              child: Image.asset(
                 imgUrl,
                 height: 200,
                 width: MediaQuery.of(context).size.width,

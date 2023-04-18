@@ -17,10 +17,13 @@ class _MainPageState extends State<MainPage> {
         page = Home();
         break;
       case 1:
-        page = CampusMap();
+        page = ItemModal("paper", "", [
+          "paper bags are recycleable. They belong in the green bins...",
+          "fold into airplane"
+        ]);
         break;
       case 2:
-        page = ItemModal("paper","",["paper bags are recycleable. They belong in the green bins...","fold into airplane"]);
+        page = ResourcesPage();
         break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
