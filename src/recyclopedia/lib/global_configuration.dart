@@ -112,7 +112,7 @@ List categoryList = [
     ]
   }
 ];
-
-List popularCategoryList = categoryList
-    .where((x) => ["Paper", "Cans", "Boxes", "Batteries"].contains(x["name"]))
-    .toList();
+List<String> popularCategoryNames = ["Paper", "Cans", "Boxes", "Batteries"];
+// List popularCategoryList = categoryList
+//     .where((x) => ["Paper", "Cans", "Boxes", "Batteries"].contains(x["name"]))
+//     .toList();

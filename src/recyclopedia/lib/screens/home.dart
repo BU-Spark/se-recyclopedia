@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:recyclopedia/global_configuration.dart';
-import 'package:recyclopedia/main.dart';
+import 'package:recyclopedia/providers/category_provider.dart';
 import 'package:recyclopedia/screens/all_categories.dart';
-import 'package:recyclopedia/screens/item_modal.dart';
 import 'package:recyclopedia/widgets/all.dart';
-import 'package:collection/collection.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var categoryListState = context.watch<CategoryListState>();
-    var categories = categoryListState.categories;
-    final groupedData = groupBy(categoryList, (item) => item['name']);
+    var categoryProvider = context.watch<CategoryProvider>();
+    var categories = categoryProvider.displayedCategories;
 
     return Center(
       // makes the home page scrollable
@@ -67,19 +63,3 @@ class Home extends StatelessWidget {
   }
 }
 
-class CategoryListState extends ChangeNotifier {
-  List<dynamic> categories = popularCategoryList;
-
-  void search(String keywords) {
-    if (keywords.isEmpty) {
-      categories = categoryList;
-    } else {
-      categories = categoryList
-          .where((item) =>
-              item["name"].toLowerCase().contains(keywords.toLowerCase()))
-          .cast<Map<String, dynamic>>()
-          .toList();
-    }
-    notifyListeners();
-  }
-}

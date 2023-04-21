@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:recyclopedia/global_configuration.dart';
 
 class ItemPreview extends Container {
   final Map item;

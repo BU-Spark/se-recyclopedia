@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:recyclopedia/global_configuration.dart';
+import 'package:provider/provider.dart';
 import 'package:collection/collection.dart';
+import 'package:recyclopedia/providers/category_provider.dart';
 import 'package:recyclopedia/widgets/all.dart';
 
 // TODO: each section is taking too much vertical space
 // widget for showing all categories in alphabetical groups
 class AllCategory extends StatelessWidget {
   AllCategory({super.key});
-
-  final groupedData = groupBy(categoryList, (item) => item['name'][0]);
-
   @override
   Widget build(BuildContext context) {
+    var categoryProvider = context.watch<CategoryProvider>();
+    final groupedData = groupBy(categoryProvider.allCategories, (item) => item['name'][0]);
+
     return Column(
       // title "All Category", All Categories from database
       children: [

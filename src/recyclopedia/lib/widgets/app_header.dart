@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:recyclopedia/global_configuration.dart';
+import 'package:recyclopedia/providers/assets_provider.dart';
+import 'package:recyclopedia/providers/category_provider.dart';
 import 'package:recyclopedia/screens/home.dart';
 
 class AppHeader extends StatelessWidget {
@@ -9,7 +10,9 @@ class AppHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var categoryListState = context.watch<CategoryListState>();
+    var categoryProvider = context.watch<CategoryProvider>();
+    var assetsProvider = context.watch<AssetsProvider>();
+    var appLogo = assetsProvider.appLogo;
     return AppBar(
       title: Column(
         children: [
@@ -26,7 +29,7 @@ class AppHeader extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(20.0),
             child: TextField(
-              onChanged: (value) => categoryListState.search(value),
+              onChanged: (value) => categoryProvider.search(value),
               decoration: InputDecoration(
                   filled: true,
                   border: OutlineInputBorder(),
