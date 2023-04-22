@@ -2,6 +2,7 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recyclopedia/all.dart';
+import 'package:recyclopedia/providers/assets_provider.dart';
 import 'package:recyclopedia/providers/category_provider.dart';
 
 void main() {
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => MyAppState()),
         ChangeNotifierProvider(create: (context) => ResourcesList()),
         ChangeNotifierProvider(create: (context) => CategoryProvider()),
+        ChangeNotifierProvider(create: (context) => AssetsProvider()),
       ],
       child: MaterialApp(
         title: 'Namer App',
