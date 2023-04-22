@@ -36,7 +36,7 @@ class ItemModal extends StatelessWidget {
               ItemPreview({"name": itemName, "image": itemImage}),
               Container(
                   padding: const EdgeInsets.only(top: 30, bottom: 15),
-                  child: Heading2("more information")),
+                  child: Heading2("More information")),
               Expanded(
                 // height: 100,
                 child: ListView.builder(
