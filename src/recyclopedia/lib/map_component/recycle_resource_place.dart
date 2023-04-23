@@ -1,10 +1,26 @@
 // This file contains the information about class recycle_resource_place
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:recyclopedia/map_component/latlngJson.dart';
 
+part 'recycle_resource_place.g.dart';
+
+// @ https://pub.dev/packages/json_serializable
+@JsonSerializable()
 class RecycleResourcePlace {
   final String id;
-  final LatLng latLng;
+
+  final LatLngJson latLng;
+  // add ...as LatLngJson to places where argument_type_not_assignable error occurs.
+  // or (the current solution) change RecycleResourcePlace constructor. 
+
+  // final LatLng latLng;
+  // not supported by json_serializable.
+  // Either change to simpler types suggested in json_serializable's documentation,
+  // or add ...as LatLngJson to places where argument_type_not_assignable error occurs.
+  // or (the current solution) change RecycleResourcePlace constructor.
+
   final String name;
   final PlaceCategory category;
   final String? description; // this ? means that description can be null value
@@ -13,16 +29,24 @@ class RecycleResourcePlace {
   final String? building;
   final String address;
 
-  const RecycleResourcePlace({
+  RecycleResourcePlace({
     required this.id,
-    required this.latLng,
+    required latLng,
     required this.name,
     required this.category,
     this.description,
     required this.direction,
     this.building,
     required this.address,
-  });
+  }) : latLng = LatLngJson.fromLatLng(latLng);
+
+  /// Connect the generated [_$RecycleResourcePlaceFromJson] function to the `fromJson`
+  /// factory.
+  factory RecycleResourcePlace.fromJson(Map<String, dynamic> json) =>
+      _$RecycleResourcePlaceFromJson(json);
+
+  /// Connect the generated [_$RecycleResourcePlaceToJson] function to the `toJson` method.
+  Map<String, dynamic> toJson() => _$RecycleResourcePlaceToJson(this);
 
   double get latitude => latLng.latitude;
 
