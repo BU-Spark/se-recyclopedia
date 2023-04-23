@@ -12,8 +12,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 
-import 'recycle_resource_place.dart';
 import 'recycle_map_component.dart';
+import 'recycle_resource_place.dart';
 
 class MapConfiguration {
   final List<RecycleResourcePlace> places;
@@ -70,7 +70,8 @@ class _PlaceMapState extends State<PlaceMap> {
 
   LatLng? _lastMapPosition;
 
-  final Map<Marker, RecycleResourcePlace> _markedPlaces = <Marker, RecycleResourcePlace>{};
+  final Map<Marker, RecycleResourcePlace> _markedPlaces =
+      <Marker, RecycleResourcePlace>{};
 
   final Set<Marker> _markers = {};
 
@@ -195,7 +196,7 @@ class _PlaceMapState extends State<PlaceMap> {
       final scaffoldMessenger = ScaffoldMessenger.of(context);
 
       var placeMarker =
-      await _getPlaceMarkerIcon(context, mapState.selectedCategory);
+          await _getPlaceMarkerIcon(context, mapState.selectedCategory);
 
       setState(() {
         final updatedMarker = _pendingMarker!.copyWith(
@@ -222,7 +223,7 @@ class _PlaceMapState extends State<PlaceMap> {
         SnackBar(
           duration: const Duration(seconds: 3),
           content:
-          const Text('New place added.', style: TextStyle(fontSize: 16.0)),
+              const Text('New place added.', style: TextStyle(fontSize: 16.0)),
           action: SnackBarAction(
             label: 'Edit',
             onPressed: () async {
@@ -233,13 +234,15 @@ class _PlaceMapState extends State<PlaceMap> {
       );
 
       // Add the new place to the places stored in mapState.
-      final newPlaces = List<RecycleResourcePlace>.from(mapState.places)..add(newPlace);
+      final newPlaces = List<RecycleResourcePlace>.from(mapState.places)
+        ..add(newPlace);
 
       mapState.setPlaces(newPlaces);
     }
   }
 
-  Future<Marker> _createPlaceMarker(BuildContext context, RecycleResourcePlace place) async {
+  Future<Marker> _createPlaceMarker(
+      BuildContext context, RecycleResourcePlace place) async {
     final marker = Marker(
       markerId: MarkerId(place.latLng.toString()),
       position: place.latLng,
@@ -277,7 +280,7 @@ class _PlaceMapState extends State<PlaceMap> {
         // view. We need to reconfigure the map to respect the updates.
         for (final place in newConfiguration.places) {
           final oldPlace =
-          _configuration!.places.firstWhereOrNull((p) => p.id == place.id);
+              _configuration!.places.firstWhereOrNull((p) => p.id == place.id);
           if (oldPlace == null || oldPlace != place) {
             // New place or updated place.
             _updateExistingPlaceMarker(place: place);
@@ -311,7 +314,7 @@ class _PlaceMapState extends State<PlaceMap> {
 
   void _onToggleMapTypePressed() {
     final nextType =
-    MapType.values[(_currentMapType.index + 1) % MapType.values.length];
+        MapType.values[(_currentMapType.index + 1) % MapType.values.length];
 
     setState(() {
       _currentMapType = nextType;
@@ -353,8 +356,7 @@ class _PlaceMapState extends State<PlaceMap> {
       final updatedMarker = marker.copyWith(
         infoWindowParam: InfoWindow(
           title: place.name,
-          snippet:
-          place.description != "" ? '${place.description} ' : null,
+          snippet: place.description != "" ? '${place.description} ' : null,
         ),
       );
       _updateMarker(marker: marker, updatedMarker: updatedMarker, place: place);

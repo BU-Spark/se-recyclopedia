@@ -4,8 +4,6 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:recyclopedia/map_component/recycle_resource_place.dart';
 
-import 'recycle_map_component.dart';
-
 class StubData {
   static const List<RecycleResourcePlace> places = [
     RecycleResourcePlace(
@@ -14,8 +12,7 @@ class StubData {
       name: 'GSU Recycle Bin',
       building: "George Sherman Union",
       address: "775 Commonwealth Ave, Boston, MA 02215",
-      description:
-      'Recycle bin located at the first floor of GSU',
+      description: 'Recycle bin located at the first floor of GSU',
       category: PlaceCategory.recycleTrashBin,
       direction: '<direction to find bin>',
     ),
@@ -58,7 +55,7 @@ class StubData {
   // ];
 }
 
-class BULocation{
+class BULocation {
   // this class maps a single location in bu with their longtitude/latitude
   final String id;
   final LatLng latLng;
@@ -70,14 +67,13 @@ class BULocation{
     required this.latLng,
     required this.locationFullName,
     this.locationSubName,
-  }) ;
+  });
 
   // TODO: get location from API
-
 }
 
 // TODO: this might need change in order to fit the exact location of the bin on map, currently only support building geolocation
-class LocationMapping{
+class LocationMapping {
   static const List<BULocation> locations = [
     BULocation(
         id: '1',

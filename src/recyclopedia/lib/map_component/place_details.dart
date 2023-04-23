@@ -6,9 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
-import 'recycle_resource_place.dart';
 import 'recycle_map_component.dart';
-import 'stub_data.dart';
+import 'recycle_resource_place.dart';
 
 class PlaceDetails extends StatefulWidget {
   final RecycleResourcePlace place;
@@ -116,7 +115,8 @@ class _PlaceDetailsState extends State<PlaceDetails> {
 
   void _onChanged(RecycleResourcePlace value) {
     // Replace the place with the modified version.
-    final newPlaces = List<RecycleResourcePlace>.from(context.read<MapState>().places);
+    final newPlaces =
+        List<RecycleResourcePlace>.from(context.read<MapState>().places);
     final index = newPlaces.indexWhere((place) => place.id == value.id);
     newPlaces[index] = value;
 

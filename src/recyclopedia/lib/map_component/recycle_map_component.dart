@@ -5,10 +5,10 @@ import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
+import 'place_details.dart';
 import 'place_map.dart';
 import 'recycle_resource_place.dart'; // RecycleResourcePlace
 import "stub_data.dart";
-import 'place_details.dart';
 
 enum PlaceTrackerViewType {
   map,
@@ -99,7 +99,9 @@ class _PlaceTrackerHomePage extends StatelessWidget {
       body: IndexedStack(
         index: state.viewType == PlaceTrackerViewType.map ? 0 : 1,
         children: const [
-          PlaceMap(center: LatLng(42.3505, -71.1054)), // BU location 42.3505° N, 71.1054° W
+          PlaceMap(
+              center: LatLng(
+                  42.3505, -71.1054)), // BU location 42.3505° N, 71.1054° W
           // PlaceList() // shows place details for the given locations
         ],
       ),
@@ -110,7 +112,8 @@ class _PlaceTrackerHomePage extends StatelessWidget {
 class MapState extends ChangeNotifier {
   MapState({
     this.places = StubData.places,
-    this.selectedCategory = PlaceCategory.recycleTrashBin, // set recycleTrashBin as default
+    this.selectedCategory =
+        PlaceCategory.recycleTrashBin, // set recycleTrashBin as default
     this.viewType = PlaceTrackerViewType.map,
   });
 

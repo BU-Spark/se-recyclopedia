@@ -8,10 +8,10 @@ class RecycleResourcePlace {
   final String name;
   final PlaceCategory category;
   final String? description; // this ? means that description can be null value
-  final String direction; // no ? means that this field must be something else than null
+  final String
+      direction; // no ? means that this field must be something else than null
   final String? building;
   final String address;
-
 
   const RecycleResourcePlace({
     required this.id,
@@ -55,15 +55,15 @@ class RecycleResourcePlace {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is RecycleResourcePlace &&
-              runtimeType == other.runtimeType &&
-              id == other.id &&
-              latLng == other.latLng &&
-              name == other.name &&
-              category == other.category &&
-              building == other.building &&
-              address == other.address;
-              // description and direction don't have to be the same
+      other is RecycleResourcePlace &&
+          runtimeType == other.runtimeType &&
+          id == other.id &&
+          latLng == other.latLng &&
+          name == other.name &&
+          category == other.category &&
+          building == other.building &&
+          address == other.address;
+  // description and direction don't have to be the same
 
   @override
   int get hashCode =>
@@ -73,7 +73,7 @@ class RecycleResourcePlace {
       category.hashCode ^
       description.hashCode ^
       direction.hashCode ^
-      building.hashCode^
+      building.hashCode ^
       address.hashCode;
 }
 
