@@ -2,7 +2,7 @@
 // getting data from target API
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:recyclepidia_map_page/map_component/recycle_resource_place.dart';
+import 'package:recyclopedia/map_component/recycle_resource_place.dart';
 
 import 'recycle_map_component.dart';
 
