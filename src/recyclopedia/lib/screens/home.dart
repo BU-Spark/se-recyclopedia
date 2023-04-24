@@ -9,6 +9,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var categoryProvider = context.watch<CategoryProvider>();
+    var title = categoryProvider.title;
     var categories = categoryProvider.displayedCategories;
 
     return Center(
@@ -20,7 +21,7 @@ class Home extends StatelessWidget {
           children: [
             AppHeader(),
             SizedBox(height: 10),
-            Text("Popular Category",
+            Text(title,
                 style: GoogleFonts.poppins(
                     fontSize: 27.0, fontWeight: FontWeight.bold)),
             SizedBox(height: 10),
