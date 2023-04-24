@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:recyclopedia/widgets/news_card.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ResourcesPage extends StatelessWidget {
   @override
@@ -20,17 +21,23 @@ class ResourcesPage extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       ),
       body: SafeArea(
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              NewsCard(
-                imgUrl:
-                    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.TFHeRKb4eBZMaGsY9XwEtAHaD3%26pid%3DApi&f=1&ipt=acfd838d5cd8ce80bb8ad8ac5f9faf90d013d27e68facfacf03b8f755bf9918f&ipo=images",
-                desc: "test description",
-                title: "test headline",
-                content: "Test content",
-              ),
-            ]),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          GestureDetector(
+            onTap: () {
+              // print("card selected");
+              const url = 'https://www.bu.edu/sustainability/about/';
+              final uri = Uri.parse(url);
+              launchUrl(uri);
+            },
+            child: NewsCard(
+              imgUrl: 'assets/images/testimage.jpg',
+              desc:
+                  "Learn more about BUs green initiatives and environmental impact",
+              title: "BU Sustainability",
+              postUrl: "google.com",
+            ),
+          )
+        ]),
       ),
     ));
   }
