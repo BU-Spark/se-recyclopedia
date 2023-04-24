@@ -10,7 +10,7 @@ RecycleResourcePlace _$RecycleResourcePlaceFromJson(
         Map<String, dynamic> json) =>
     RecycleResourcePlace(
       id: json['id'] as String,
-      latLng: LatLngJson.fromJson(json['latLng'] as Map<String, dynamic>),
+      latLng: json['latLng'],
       name: json['name'] as String,
       category: $enumDecode(_$PlaceCategoryEnumMap, json['category']),
       description: json['description'] as String?,
@@ -33,7 +33,6 @@ Map<String, dynamic> _$RecycleResourcePlaceToJson(
     };
 
 const _$PlaceCategoryEnumMap = {
-  PlaceCategory.recycleTrashBin: 'recycleTrashBin',
-  PlaceCategory.recycleBox: 'recycleBox',
-  PlaceCategory.informationCenter: 'informationCenter',
+  PlaceCategory.binAvailable: 'binAvailable',
+  PlaceCategory.binUnavailable: 'binUnavailable',
 };
