@@ -1,5 +1,4 @@
 // Define a function that navigates to a new page
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:recyclopedia/models/area_location.dart';

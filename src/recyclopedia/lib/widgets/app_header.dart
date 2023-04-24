@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:recyclopedia/providers/assets_provider.dart';
 import 'package:recyclopedia/providers/category_provider.dart';
-import 'package:recyclopedia/screens/home.dart';
 
 class AppHeader extends StatelessWidget {
   const AppHeader({super.key});

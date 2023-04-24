@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:recyclopedia/main.dart';
 import 'package:recyclopedia/providers/location_provider.dart';
 import 'package:recyclopedia/utils/navigate_to_location_modal.dart';
 // Temporary, for testing location modal
