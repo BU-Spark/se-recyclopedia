@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-import 'place_details.dart';
+import 'place_list.dart';
 import 'place_map.dart';
 import 'recycle_resource_place.dart'; // RecycleResourcePlace
 import "stub_data.dart";
+import 'place_details.dart';
 
 enum PlaceTrackerViewType {
   map,
@@ -24,12 +26,12 @@ class RecycleMapComponent extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorSchemeSeed: Colors.green,
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.green[700],
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0XFF2F935C),
           foregroundColor: Colors.white,
         ),
-        floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: Colors.green[700],
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Color(0XFF2F935C),
           foregroundColor: Colors.white,
         ),
       ),
@@ -56,7 +58,6 @@ class RecycleMapComponent extends StatelessWidget {
     );
   }
 }
-
 class _PlaceTrackerHomePage extends StatelessWidget {
   const _PlaceTrackerHomePage();
 
@@ -64,45 +65,57 @@ class _PlaceTrackerHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var state = Provider.of<MapState>(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
-              child: Icon(Icons.pin_drop, size: 24.0),
-            ),
-            Text('Place Tracker'),
-          ],
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0.0, 0.0, 16.0, 0.0),
-            child: IconButton(
-              icon: Icon(
-                state.viewType == PlaceTrackerViewType.map
-                    ? Icons.list
-                    : Icons.map,
-                size: 32.0,
-              ),
-              onPressed: () {
-                state.setViewType(
-                  state.viewType == PlaceTrackerViewType.map
-                      ? PlaceTrackerViewType.list
-                      : PlaceTrackerViewType.map,
-                );
-              },
-            ),
+        appBar: AppBar(
+          title: Column(
+            children: [
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text('Recycling Bin Locations', style: GoogleFonts.poppins(fontSize: 27.0)),
+                  // Text('your campus recycling tool',
+                  //     style: GoogleFonts.poppins(fontSize: 15.0)),
+                ]),
+              ]),
+              const SizedBox(height: 20),
+              Row(children: <Widget>[
+                  const Flexible(
+                    child: TextField(
+                      decoration: InputDecoration(
+                          filled: true,
+                          border: OutlineInputBorder(),
+                          fillColor: Colors.white,
+                          prefixIcon: Icon(Icons.search),
+                          hintText: 'Search...'),
+                    ),
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      state.viewType == PlaceTrackerViewType.map
+                          ? Icons.list
+                          : Icons.map,
+                      size: 32.0,
+                    ),
+                    onPressed: () {
+                      state.setViewType(
+                        state.viewType == PlaceTrackerViewType.map
+                            ? PlaceTrackerViewType.list
+                            : PlaceTrackerViewType.map,
+                      );
+                    },
+                  ),
+              ],)
+            ],
           ),
-        ],
-      ),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+          ),
+          backgroundColor: const Color(0XFF2F935C),
+          toolbarHeight: 210,
+        ),
       body: IndexedStack(
         index: state.viewType == PlaceTrackerViewType.map ? 0 : 1,
         children: const [
-          PlaceMap(
-              center: LatLng(
-                  42.3505, -71.1054)), // BU location 42.3505° N, 71.1054° W
-          // PlaceList() // shows place details for the given locations
+          PlaceMap(center: LatLng(42.3505, -71.1054)), // BU location 42.3505° N, 71.1054° W
+          PlaceList(), // shows place details for the given locations
         ],
       ),
     );
@@ -111,9 +124,8 @@ class _PlaceTrackerHomePage extends StatelessWidget {
 
 class MapState extends ChangeNotifier {
   MapState({
-    this.places = StubData.places,
-    this.selectedCategory =
-        PlaceCategory.recycleTrashBin, // set recycleTrashBin as default
+    this.places = StubData.places, //TODO:get places from api rather than hard coded
+    this.selectedCategory = PlaceCategory.binAvailable, // set binAvailable as default
     this.viewType = PlaceTrackerViewType.map,
   });
 
