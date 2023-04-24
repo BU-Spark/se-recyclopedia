@@ -116,3 +116,20 @@ List<String> popularCategoryNames = ["Paper", "Cans", "Boxes", "Batteries"];
 // List popularCategoryList = categoryList
 //     .where((x) => ["Paper", "Cans", "Boxes", "Batteries"].contains(x["name"]))
 //     .toList();
+List<Map<String,dynamic>> defaultLocations = [
+  {
+    "name":"GSU",
+    "address":"775 Commonwealth avenue floor 1",
+    "image":"images/PlasticBottle.png",
+    "howToFindBins":{
+      "bin 1":[
+        "go right across starbucks"
+      ],
+      "bin 2":[
+        "walk",
+        "dance",
+        "fly"
+      ]
+    }
+  }
+];
