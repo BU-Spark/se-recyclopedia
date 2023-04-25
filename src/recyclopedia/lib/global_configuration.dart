@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
-Image appLogo = const Image(
-  image: ExactAssetImage("images/logo.jpg"),
-  height: 75.0,
-  width: 75.0,
-);
+String appLogoPath = "assets/images/logo.jpg";
+
 
 List categoryList = [
   {
@@ -57,12 +54,12 @@ List categoryList = [
     "description": ["Put this item in your trash bin."]
   },
   {
-    "image": "assets/assets/images/FoodBox.png",
+    "image": "assets/images/FoodBox.png",
     "name": "Food boxes",
     "description": ["Remove all liners."]
   },
   {
-    "image": "assets/assets/images/FoodCans.png",
+    "image": "assets/images/FoodCans.png",
     "name": "Food cans",
     "description": ["Rinse or wipe clean all food/residue. Replace lid."]
   },
