@@ -143,6 +143,15 @@ This app is currently in beta, contents displayed are solely for testing purpose
 ## More Information
 More about his project, contact [BU sustainbility](https://www.bu.edu/sustainability/) or [BU Spark!](https://www.bu.edu/spark/)
 
+# build and test locally
+```
+cd src/recyclopedia
+flutter pub get
+flutter build web
+python3 -m http.server 8000 --directory build/web/
+# visit http://localhost:8000/ 
+```
+
 # Add Users
 To add yourself to the repository, open a Pull Request modifying `COLLABORATORS`, entering your GitHub username in a newline.
 
