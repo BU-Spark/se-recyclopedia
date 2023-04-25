@@ -10,7 +10,7 @@ import 'recycle_map_component.dart';
 
 
 class StubData {
-  static const List<RecycleResourcePlace> places = [
+  static List<RecycleResourcePlace> places = [
     RecycleResourcePlace(
       id: '1',
       latLng: LatLng(42.3508, -71.1089), //42.3509° N, 71.1089° W
