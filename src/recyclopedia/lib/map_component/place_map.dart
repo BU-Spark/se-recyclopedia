@@ -321,18 +321,21 @@ class _PlaceMapState extends State<PlaceMap> {
   static Future<BitmapDescriptor> _getPlaceMarkerIcon(
       BuildContext context, PlaceCategory category) async {
     switch (category) {
-      case PlaceCategory.binAvailable:
+      case PlaceCategory.binAvailable:  // TODO: it is not able to get decode marker, rather, it can run with browser
         return BitmapDescriptor.fromAssetImage(
             createLocalImageConfiguration(context, size: const Size.square(32)),
-            '../assets/greenMarker.png');
+            'blank_green.png');
+        // return BitmapDescriptor.defaultMarkerWithHue(150.0);
       case PlaceCategory.binUnavailable:
-        return BitmapDescriptor.fromAssetImage(
-            createLocalImageConfiguration(context, size: const Size.square(32)),
-            '../assets/greyMarker.png');
+        // return BitmapDescriptor.fromAssetImage(
+        //     createLocalImageConfiguration(context, size: const Size.square(32)),
+        //     'blank_light_blue.png');
+        return BitmapDescriptor.defaultMarkerWithHue(0.0);
       default:
-        return BitmapDescriptor.fromAssetImage(
-            createLocalImageConfiguration(context, size: const Size.square(32)),
-            '../assets/greenMarker.png');
+        // return BitmapDescriptor.fromAssetImage(
+        //     createLocalImageConfiguration(context, size: const Size.square(32)),
+        //     'blank_green.png');
+        return BitmapDescriptor.defaultMarker;
     }
   }
 
