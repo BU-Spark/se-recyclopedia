@@ -145,6 +145,7 @@ More about his project, contact [BU sustainbility](https://www.bu.edu/sustainabi
 
 # build and test locally
 ```
+git switch cicd
 cd src/recyclopedia
 flutter pub get
 flutter build web
