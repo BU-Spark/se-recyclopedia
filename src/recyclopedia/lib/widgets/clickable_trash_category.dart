@@ -31,8 +31,9 @@ class ClickableTrashItem extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-                child: Image.asset(
-              item["image"],
+                child: Image(image: AssetImage(item["image"]),
+              //   Image.asset(
+              // item["image"],
               fit: BoxFit.contain,
             )),
             Text(

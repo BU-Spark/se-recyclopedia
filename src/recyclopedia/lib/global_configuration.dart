@@ -8,7 +8,7 @@ Image appLogo = const Image(
 
 List categoryList = [
   {
-    "image": "images/Aluminum.png",
+    "image": "assets/images/Aluminum.png",
     "name": "Aluminum containers",
     "description": [
       "Rinse or wipe clean all food or other residue.",
@@ -16,12 +16,12 @@ List categoryList = [
     ]
   },
   {
-    "image": "images/Balloons.png",
+    "image": "assets/images/Balloons.png",
     "name": "Balloons",
     "description": ["Put this item in your trash bin."]
   },
   {
-    "image": "images/Batteries.png",
+    "image": "assets/images/Batteries.png",
     "name": "Batteries",
     "description": [
       "Lithium Batteries: Hold for a local household hazardous waste collection day.",
@@ -29,22 +29,22 @@ List categoryList = [
     ]
   },
   {
-    "image": "images/BerryBaskets.png",
+    "image": "assets/images/BerryBaskets.png",
     "name": "Berry baskets",
     "description": ["Put this item in your trash bin."]
   },
   {
-    "image": "images/Boxes.png",
+    "image": "assets/images/Boxes.png",
     "name": "Boxes",
     "description": ["Put this item in your trash bin."]
   },
   {
-    "image": "images/Cans.png",
+    "image": "assets/images/Cans.png",
     "name": "Cans",
     "description": ["Empty and rinse."]
   },
   {
-    "image": "images/Cardboard.png",
+    "image": "assets/images/Cardboard.png",
     "name": "Cardboard",
     "description": [
       "Flatten/nest when possible. Remove all foam, bubble wrap, air pillows.",
@@ -52,28 +52,28 @@ List categoryList = [
     ]
   },
   {
-    "image": "images/Chopsticks.png",
+    "image": "assets/images/Chopsticks.png",
     "name": "Chopsticks",
     "description": ["Put this item in your trash bin."]
   },
   {
-    "image": "images/FoodBox.png",
+    "image": "assets/assets/images/FoodBox.png",
     "name": "Food boxes",
     "description": ["Remove all liners."]
   },
   {
-    "image": "images/FoodCans.png",
+    "image": "assets/assets/images/FoodCans.png",
     "name": "Food cans",
     "description": ["Rinse or wipe clean all food/residue. Replace lid."]
   },
   {
-    "image": "images/GlassBottle.png",
+    "image": "assets/images/GlassBottle.png",
     "name": "Glass bottle",
     "description": ["Rinse or wipe clean all food/residue."]
   },
   {
     "name": "Jars (glass and plastic)",
-    "image": "images/Jars.png",
+    "image": "assets/images/Jars.png",
     "description": [
       "Rinse or wipe clean all food/residue. Replace lid.",
       "There is NO need to remove label."
@@ -81,27 +81,27 @@ List categoryList = [
   },
   {
     "name": "Jugs",
-    "image": "images/Jug.png",
+    "image": "assets/images/Jug.png",
     "description": ["Rinse or wipe clean all food/residue. Replace lid."]
   },
   {
     "name": "Mail",
-    "image": "images/Mail.png",
+    "image": "assets/images/Mail.png",
     "description": ["Remove free samples."]
   },
   {
     "name": "Paper",
-    "image": "images/Paper.png",
+    "image": "assets/images/Paper.png",
     "description": ["Staples and paper clips are okay."]
   },
   {
     "name": "Paper cups",
-    "image": "images/PaperCups.png",
+    "image": "assets/images/PaperCups.png",
     "description": ["Put this item in your trash bin."]
   },
   {
     "name": "Plastic bottles and caps",
-    "image": "images/PlasticBottle.png",
+    "image": "assets/images/PlasticBottle.png",
     "description": [
       "Empty and replace cap.",
       "There is a five cent deposit on carbonated soft drink, beer, malt beverage, and sparkling water containers sold in Massachusetts. Items that meet that description",
