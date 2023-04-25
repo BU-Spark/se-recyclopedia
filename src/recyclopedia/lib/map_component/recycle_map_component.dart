@@ -121,6 +121,7 @@ class _PlaceTrackerHomePage extends StatelessWidget {
     );
   }
 }
+// const stubData = StubData.places;
 
 class MapState extends ChangeNotifier {
   MapState({
