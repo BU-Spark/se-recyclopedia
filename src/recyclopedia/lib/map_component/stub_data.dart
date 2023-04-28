@@ -8,8 +8,22 @@ import 'package:recyclopedia/map_component/latlngJson.dart';
 import 'recycle_resource_place.dart';
 import 'recycle_map_component.dart';
 
-
 class StubData {
+  static String defaultTrackerViewType = "map";
+  static String defaultCategory = "binAvailable";
+  static List<dynamic> defaultPlaces = [
+    {
+      "id": "1",
+      "latLng": {"latitude": 42.3508, "longitude": -71.1089},
+      "name": "food",
+      "building": "123 Beverly Hills",
+      "address": "33.8830",
+      "description": "-118.4338",
+      "category": "binAvailable",
+      "direction":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula"
+    }
+  ];
   static List<RecycleResourcePlace> places = [
     RecycleResourcePlace(
       id: '1',
@@ -17,8 +31,7 @@ class StubData {
       name: 'GSU Recycle Bin',
       building: "George Sherman Union",
       address: "775 Commonwealth Ave, Boston, MA 02215",
-      description:
-      'Recycle bin located at the first floor of GSU',
+      description: 'Recycle bin located at the first floor of GSU',
       category: PlaceCategory.binAvailable,
       direction: '<direction to find bin>',
     ),
@@ -69,8 +82,7 @@ class StubDataJson {
       name: 'GSU Recycle Bin',
       building: "George Sherman Union",
       address: "775 Commonwealth Ave, Boston, MA 02215",
-      description:
-      'Recycle bin located at the first floor of GSU',
+      description: 'Recycle bin located at the first floor of GSU',
       category: PlaceCategory.binAvailable,
       direction: '<direction to find bin>',
     ),
@@ -113,7 +125,7 @@ class StubDataJson {
   // ];
 }
 
-class BULocation{
+class BULocation {
   // this class maps a single location in bu with their longtitude/latitude
   final String id;
   final LatLng latLng;
@@ -125,14 +137,13 @@ class BULocation{
     required this.latLng,
     required this.locationFullName,
     this.locationSubName,
-  }) ;
+  });
 
   // TODO: get location from API
-
 }
 
 // TODO: this might need change in order to fit the exact location of the bin on map, currently only support building geolocation
-class LocationMapping{
+class LocationMapping {
   static const List<BULocation> locations = [
     BULocation(
         id: '1',

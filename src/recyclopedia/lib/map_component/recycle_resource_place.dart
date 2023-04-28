@@ -13,7 +13,7 @@ class RecycleResourcePlace {
 
   final LatLngJson latLng;
   // add ...as LatLngJson to places where argument_type_not_assignable error occurs.
-  // or (the current solution) change RecycleResourcePlace constructor. 
+  // or (the current solution) change RecycleResourcePlace constructor.
 
   // final LatLng latLng;
   // not supported by json_serializable.
@@ -38,7 +38,11 @@ class RecycleResourcePlace {
     required this.direction,
     this.building,
     required this.address,
-  }) : latLng = LatLngJson.fromLatLng(latLng);
+  }) : latLng = latLng.runtimeType == LatLngJson
+            ? latLng
+            : latLng.runtimeType == LatLng
+                ? LatLngJson.fromLatLng(latLng)
+                : LatLngJson.fromJson(latLng);
 
   /// Connect the generated [_$RecycleResourcePlaceFromJson] function to the `fromJson`
   /// factory.
@@ -101,6 +105,8 @@ class RecycleResourcePlace {
       address.hashCode;
 }
 
+// https://pub.dev/packages/json_serializable#enums
+@JsonEnum()
 enum PlaceCategory {
   // Shows the category of the marker on the map, could be one of the several kinds
   // TODO: need to discuss with client for how many kinds of resources there are -> change color or marker on map accordingly
@@ -108,6 +114,11 @@ enum PlaceCategory {
   // recycleBox,
   // informationCenter,
   // TODO: according to figma, we only have to take track of BinAvailable and BinUnavailable
+  @JsonValue("binAvailable")
   binAvailable,
-  binUnavailable,
+  @JsonValue("binUnavailable")
+  binUnavailable;
+
+  static PlaceCategory fromJson(String json) => values.byName(json);
+  String toJson() => name;
 }

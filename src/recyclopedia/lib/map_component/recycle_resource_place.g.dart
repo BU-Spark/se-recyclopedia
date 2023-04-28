@@ -25,7 +25,7 @@ Map<String, dynamic> _$RecycleResourcePlaceToJson(
       'id': instance.id,
       'latLng': instance.latLng,
       'name': instance.name,
-      'category': _$PlaceCategoryEnumMap[instance.category]!,
+      'category': instance.category,
       'description': instance.description,
       'direction': instance.direction,
       'building': instance.building,

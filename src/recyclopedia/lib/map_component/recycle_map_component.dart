@@ -14,7 +14,10 @@ import 'place_details.dart';
 
 enum PlaceTrackerViewType {
   map,
-  list,
+  list;
+
+  static PlaceTrackerViewType fromJson(String json) => values.byName(json);
+  String toJson() => name;
 }
 
 class RecycleMapComponent extends StatelessWidget {
@@ -58,63 +61,71 @@ class RecycleMapComponent extends StatelessWidget {
     );
   }
 }
+
 class _PlaceTrackerHomePage extends StatelessWidget {
   const _PlaceTrackerHomePage();
 
   @override
   Widget build(BuildContext context) {
-    var state = Provider.of<MapState>(context);
+    var mapState = Provider.of<MapState>(context);
+    mapState.initState();
+    var viewType = mapState.viewType;
     return Scaffold(
-        appBar: AppBar(
-          title: Column(
-            children: [
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text('Recycling Bin Locations', style: GoogleFonts.poppins(fontSize: 27.0)),
-                  // Text('your campus recycling tool',
-                  //     style: GoogleFonts.poppins(fontSize: 15.0)),
-                ]),
+      appBar: AppBar(
+        title: Column(
+          children: [
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text('Recycling Bin Locations',
+                    style: GoogleFonts.poppins(fontSize: 27.0)),
+                // Text('your campus recycling tool',
+                //     style: GoogleFonts.poppins(fontSize: 15.0)),
               ]),
-              const SizedBox(height: 20),
-              Row(children: <Widget>[
-                  const Flexible(
-                    child: TextField(
-                      decoration: InputDecoration(
-                          filled: true,
-                          border: OutlineInputBorder(),
-                          fillColor: Colors.white,
-                          prefixIcon: Icon(Icons.search),
-                          hintText: 'Search...'),
-                    ),
+            ]),
+            const SizedBox(height: 20),
+            Row(
+              children: <Widget>[
+                const Flexible(
+                  child: TextField(
+                    decoration: InputDecoration(
+                        filled: true,
+                        border: OutlineInputBorder(),
+                        fillColor: Colors.white,
+                        prefixIcon: Icon(Icons.search),
+                        hintText: 'Search...'),
                   ),
-                  IconButton(
-                    icon: Icon(
-                      state.viewType == PlaceTrackerViewType.map
-                          ? Icons.list
-                          : Icons.map,
-                      size: 32.0,
-                    ),
-                    onPressed: () {
-                      state.setViewType(
-                        state.viewType == PlaceTrackerViewType.map
-                            ? PlaceTrackerViewType.list
-                            : PlaceTrackerViewType.map,
-                      );
-                    },
+                ),
+                IconButton(
+                  icon: Icon(
+                    viewType == PlaceTrackerViewType.map
+                        ? Icons.list
+                        : Icons.map,
+                    size: 32.0,
                   ),
-              ],)
-            ],
-          ),
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
-          ),
-          backgroundColor: const Color(0XFF2F935C),
-          toolbarHeight: 210,
+                  onPressed: () {
+                    mapState.setViewType(
+                      viewType == PlaceTrackerViewType.map
+                          ? PlaceTrackerViewType.list
+                          : PlaceTrackerViewType.map,
+                    );
+                  },
+                ),
+              ],
+            )
+          ],
         ),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+        ),
+        backgroundColor: const Color(0XFF2F935C),
+        toolbarHeight: 210,
+      ),
       body: IndexedStack(
-        index: state.viewType == PlaceTrackerViewType.map ? 0 : 1,
+        index: viewType == PlaceTrackerViewType.map ? 0 : 1,
         children: const [
-          PlaceMap(center: LatLng(42.3505, -71.1054)), // BU location 42.3505° N, 71.1054° W
+          PlaceMap(
+              center: LatLng(
+                  42.3505, -71.1054)), // BU location 42.3505° N, 71.1054° W
           PlaceList(), // shows place details for the given locations
         ],
       ),
@@ -122,18 +133,22 @@ class _PlaceTrackerHomePage extends StatelessWidget {
   }
 }
 
-
-
 class MapState extends ChangeNotifier {
-  MapState({
-    this.places = StubData.places, //TODO:get places from api rather than hard coded
-    this.selectedCategory = PlaceCategory.binAvailable, // set binAvailable as default
-    this.viewType = PlaceTrackerViewType.map,
-  });
+  late List<RecycleResourcePlace> places;
+  late PlaceCategory selectedCategory;
+  late PlaceTrackerViewType viewType;
 
-  List<RecycleResourcePlace> places;
-  PlaceCategory selectedCategory;
-  PlaceTrackerViewType viewType;
+  void initState() {
+    // places = StubData.places; //TODO:get places from api rather than hard coded
+    // selectedCategory = PlaceCategory.binAvailable; // set binAvailable as default
+    // viewType = PlaceTrackerViewType.map;
+
+    places = StubData.defaultPlaces
+        .map((e) => RecycleResourcePlace.fromJson(e))
+        .toList(); //TODO:get places from api rather than hard coded
+    selectedCategory = PlaceCategory.fromJson(StubData.defaultCategory);
+    viewType = PlaceTrackerViewType.fromJson(StubData.defaultTrackerViewType);
+  }
 
   void setViewType(PlaceTrackerViewType viewType) {
     this.viewType = viewType;
