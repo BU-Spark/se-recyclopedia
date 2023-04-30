@@ -24,10 +24,12 @@ class RecycleResourcePlace {
   final String name;
   final PlaceCategory category;
   final String? description; // this ? means that description can be null value
-  final String
-      direction; // no ? means that this field must be something else than null
+  final List
+      directions; // no ? means that this field must be something else than null
   final String? building;
   final String address;
+  final List bins;
+  final String image; 
 
   RecycleResourcePlace({
     required this.id,
@@ -35,9 +37,11 @@ class RecycleResourcePlace {
     required this.name,
     required this.category,
     this.description,
-    required this.direction,
+    required this.directions,
     this.building,
     required this.address,
+    required this.bins,
+    required this.image,
   }) : latLng = latLng.runtimeType == LatLngJson
             ? latLng
             : latLng.runtimeType == LatLng
@@ -64,9 +68,11 @@ class RecycleResourcePlace {
     String? name,
     PlaceCategory? category,
     String? description,
-    String? direction,
+    List<String>? directions,
     String? building,
     String? address,
+    List<String>?  bins,
+    String? image, 
   }) {
     return RecycleResourcePlace(
       id: id ?? this.id,
@@ -74,9 +80,11 @@ class RecycleResourcePlace {
       name: name ?? this.name,
       category: category ?? this.category,
       description: description ?? this.description,
-      direction: direction ?? this.direction,
+      directions: directions ?? this.directions,
       building: building ?? this.building,
       address: address ?? this.address,
+      bins: bins ?? this.bins,
+      image: image ?? this.image,
     );
   }
 
@@ -90,7 +98,9 @@ class RecycleResourcePlace {
           name == other.name &&
           category == other.category &&
           building == other.building &&
-          address == other.address;
+          address == other.address &&
+          bins == other.bins && 
+          image == other.image;
   // description and direction don't have to be the same
 
   @override
@@ -100,9 +110,11 @@ class RecycleResourcePlace {
       name.hashCode ^
       category.hashCode ^
       description.hashCode ^
-      direction.hashCode ^
+      directions.hashCode ^
       building.hashCode ^
-      address.hashCode;
+      address.hashCode ^
+      bins.hashCode ^ 
+      image.hashCode;
 }
 
 // https://pub.dev/packages/json_serializable#enums
@@ -113,7 +125,6 @@ enum PlaceCategory {
   // recycleTrashBin,
   // recycleBox,
   // informationCenter,
-  // TODO: according to figma, we only have to take track of BinAvailable and BinUnavailable
   @JsonValue("binAvailable")
   binAvailable,
   @JsonValue("binUnavailable")

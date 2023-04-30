@@ -20,101 +20,60 @@ class StubData {
       "address": "33.8830",
       "description": "-118.4338",
       "category": "binAvailable",
-      "direction":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula"
+      "directions":
+          ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula"],
+      "bins": ["first floor", "second floor"],
+      "image" : "assets/logo.jpg"
     }
   ];
   static List<RecycleResourcePlace> places = [
     RecycleResourcePlace(
       id: '1',
-      latLng: LatLng(42.3508, -71.1089), //42.3509° N, 71.1089° W
+      latLng: const LatLng(42.3508, -71.1089), //42.3509° N, 71.1089° W
       name: 'GSU Recycle Bin',
       building: "George Sherman Union",
       address: "775 Commonwealth Ave, Boston, MA 02215",
       description: 'Recycle bin located at the first floor of GSU',
       category: PlaceCategory.binAvailable,
-      direction: '<direction to find bin>',
+      directions: ['<direction to find bin>'],
+      bins: ["first floor", "second floor"],
+      image: "./asset/gsu.jpg",
     ),
     RecycleResourcePlace(
       id: '2',
-      latLng: LatLng(42.3495, -71.1048), // 42.3495° N, 71.1048° W
+      latLng: const LatLng(42.3495, -71.1048), // 42.3495° N, 71.1048° W
       name: 'Warren Towers Recycle Box',
       building: "George Sherman Union",
       address: "700 Commonwealth Ave, Boston, MA 02215",
       category: PlaceCategory.binAvailable,
       // description is null, for testing purpose
-      direction: '<direction to find bin>',
+      directions: ['<direction to find bin>'],
+      bins: ["first floor", "second floor"],
+      image: "./asset/gsu.jpg",
     ),
     RecycleResourcePlace(
       id: '3',
-      latLng: LatLng(42.3503, -71.1054), // 42.3503° N, 71.1054° W
+      latLng: const LatLng(42.3503, -71.1054), // 42.3503° N, 71.1054° W
       name: 'CAS Recycle Bin',
       building: "College of Art&Sciences",
       address: "725 Commonwealth Ave, Boston, MA 02215",
       description: 'Recycle bin located at the first floor of CAS',
       category: PlaceCategory.binUnavailable,
-      direction: '<direction to find bin>',
+      directions: ['<direction to find bin>'],
+      bins: ["first floor", "second floor"],
+      image: "./asset/gsu.jpg",
     ),
     RecycleResourcePlace(
       id: '4',
-      latLng: LatLng(42.3511, -71.1089), //42.3509° N, 71.1089° W
+      latLng: const LatLng(42.3511, -71.1089), //42.3509° N, 71.1089° W
       name: 'GSU Recycle Center (imaginary)',
       building: "George Sherman Union",
       address: "775 Commonwealth Ave, Boston, MA 02215",
       description: 'Recycle center underground of GSU',
       category: PlaceCategory.binUnavailable,
-      direction: '<direction to find bin>',
-    ),
-  ];
-
-  // static const reviewStrings = [
-  //   'My favorite place in Portland. The employees are wonderful and so is the food. I go here at least once a month!',
-  //   'Staff was very friendly. Great atmosphere and good music. Would recommend.',
-  //   'Best. Place. In. Town. Period.'
-  // ];
-}
-
-class StubDataJson {
-  static List<RecycleResourcePlace> places = [
-    RecycleResourcePlace(
-      id: '1',
-      latLng: LatLngJson(42.3508, -71.1089), //42.3509° N, 71.1089° W
-      name: 'GSU Recycle Bin',
-      building: "George Sherman Union",
-      address: "775 Commonwealth Ave, Boston, MA 02215",
-      description: 'Recycle bin located at the first floor of GSU',
-      category: PlaceCategory.binAvailable,
-      direction: '<direction to find bin>',
-    ),
-    RecycleResourcePlace(
-      id: '2',
-      latLng: LatLngJson(42.3495, -71.1048), // 42.3495° N, 71.1048° W
-      name: 'Warren Towers Recycle Box',
-      building: "George Sherman Union",
-      address: "700 Commonwealth Ave, Boston, MA 02215",
-      category: PlaceCategory.binAvailable,
-      // description is null, for testing purpose
-      direction: '<direction to find bin>',
-    ),
-    RecycleResourcePlace(
-      id: '3',
-      latLng: LatLngJson(42.3503, -71.1054), // 42.3503° N, 71.1054° W
-      name: 'CAS Recycle Bin',
-      building: "College of Art&Sciences",
-      address: "725 Commonwealth Ave, Boston, MA 02215",
-      description: 'Recycle bin located at the first floor of CAS',
-      category: PlaceCategory.binUnavailable,
-      direction: '<direction to find bin>',
-    ),
-    RecycleResourcePlace(
-      id: '4',
-      latLng: LatLngJson(42.3511, -71.1089), //42.3509° N, 71.1089° W
-      name: 'GSU Recycle Center (imaginary)',
-      building: "George Sherman Union",
-      address: "775 Commonwealth Ave, Boston, MA 02215",
-      description: 'Recycle center underground of GSU',
-      category: PlaceCategory.binUnavailable,
-      direction: '<direction to find bin>',
+      directions: ['<direction to find bin>'],
+      bins: ["first floor", "second floor"],
+      image: "./asset/gsu.jpg",
     ),
   ];
 
@@ -139,10 +98,8 @@ class BULocation {
     this.locationSubName,
   });
 
-  // TODO: get location from API
 }
 
-// TODO: this might need change in order to fit the exact location of the bin on map, currently only support building geolocation
 class LocationMapping {
   static const List<BULocation> locations = [
     BULocation(

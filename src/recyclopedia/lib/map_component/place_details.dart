@@ -3,11 +3,13 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:recyclopedia/widgets/all.dart';
 
-import 'recycle_resource_place.dart';
-import 'recycle_map_component.dart';
+import 'package:recyclopedia/map_component/recycle_resource_place.dart';
+import 'package:recyclopedia/map_component/recycle_map_component.dart';
 import 'stub_data.dart';
 
 class PlaceDetails extends StatefulWidget {
@@ -24,6 +26,7 @@ class PlaceDetails extends StatefulWidget {
 
 class _PlaceDetailsState extends State<PlaceDetails> { // TODO: use fanjie Gao's page instead
   late RecycleResourcePlace _place;
+  late String selectedBin;
   GoogleMapController? _mapController;
   final Set<Marker> _markers = {};
   final TextEditingController _nameController = TextEditingController();
@@ -31,30 +34,104 @@ class _PlaceDetailsState extends State<PlaceDetails> { // TODO: use fanjie Gao's
 
   @override
   Widget build(BuildContext context) {
+    // return Scaffold(
+    //   appBar: AppBar(
+    //     title: Text(_place.name),
+    //     backgroundColor: Colors.green[700],
+    //     actions: [
+    //       Padding(
+    //         padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
+    //         child: IconButton(
+    //           icon: const Icon(Icons.save, size: 30.0),
+    //           onPressed: () {
+    //             _onChanged(_place);
+    //             Navigator.pop(context);
+    //           },
+    //         ),
+    //       ),
+    //     ],
+    //   ),
+    //   body: GestureDetector(
+    //     onTap: () {
+    //       FocusScope.of(context).requestFocus(FocusNode());
+    //     },
+    //     child: _detailsBody(),
+    //   ),
+    // );
     return Scaffold(
-      appBar: AppBar(
-        title: Text(_place.name),
-        backgroundColor: Colors.green[700],
-        actions: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
-            child: IconButton(
-              icon: const Icon(Icons.save, size: 30.0),
-              onPressed: () {
-                _onChanged(_place);
-                Navigator.pop(context);
-              },
-            ),
+        appBar: AppBar(
+          title: Text(_place.name),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
-        ],
-      ),
-      body: GestureDetector(
-        onTap: () {
-          FocusScope.of(context).requestFocus(FocusNode());
-        },
-        child: _detailsBody(),
-      ),
-    );
+        ),
+        body: Container(
+          padding: const EdgeInsets.only(left: 15, right: 15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                  padding: const EdgeInsets.only(bottom: 15),
+                  child: Heading1(_place.name)),
+              Container(
+                child: Text(_place.address,
+                    style: GoogleFonts.poppins(
+                        fontSize: 18.0, fontWeight: FontWeight.normal)),
+              ),
+              ItemPreview({"image": _place.image}),
+              Expanded(
+                // height: 100,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  // Let the ListView know how many items it needs to build.
+                  itemCount: _place.bins.length,
+                  // Provide a builder function. This is where the magic happens.
+                  // Convert each item into a widget based on the type of item it is.
+                  itemBuilder: (context, index) {
+                    // final item = bins[index];
+                    // return Text("gesture");
+                    return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedBin = _place.bins[index];
+                          });
+                        },
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(color: Colors.green),
+                            ),
+                          ),
+                          child: Text(
+                            _place.bins[index],
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                        ));
+                  },
+                ),
+              ),
+              Expanded(
+                child: ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  // Let the ListView know how many items it needs to build.
+                  itemCount: _place.directions.length,
+                  // Provide a builder function. This is where the magic happens.
+                  // Convert each item into a widget based on the type of item it is.
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                        leading: CircleAvatar(child: Text(index.toString())),
+                        title: Text(_place.directions[index]));
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+  
   }
 
   @override
