@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:uuid/uuid.dart';
 
 import 'recycle_resource_place.dart';
 import 'recycle_map_component.dart';
@@ -320,22 +319,19 @@ class _PlaceMapState extends State<PlaceMap> {
 
   static Future<BitmapDescriptor> _getPlaceMarkerIcon(
       BuildContext context, PlaceCategory category) async {
-    switch (category) {
-      case PlaceCategory.binAvailable:  // TODO: it is not able to get decode marker, rather, it can run with browser
-        return BitmapDescriptor.fromAssetImage(
-            createLocalImageConfiguration(context, size: const Size.square(32)),
+    var marker = BitmapDescriptor.fromAssetImage(
+            createLocalImageConfiguration(context, size: const Size(32,48)),
             'blank_green.png');
-        // return BitmapDescriptor.defaultMarkerWithHue(150.0);
+    switch (category) {
+      case PlaceCategory.binAvailable: 
+        return marker;
       case PlaceCategory.binUnavailable:
-        // return BitmapDescriptor.fromAssetImage(
-        //     createLocalImageConfiguration(context, size: const Size.square(32)),
-        //     'blank_light_blue.png');
-        return BitmapDescriptor.defaultMarkerWithHue(0.0);
+        marker = BitmapDescriptor.fromAssetImage(
+            createLocalImageConfiguration(context, size: const Size(32,48)),
+            'blank_light_blue.png');
+        return marker;
       default:
-        // return BitmapDescriptor.fromAssetImage(
-        //     createLocalImageConfiguration(context, size: const Size.square(32)),
-        //     'blank_green.png');
-        return BitmapDescriptor.defaultMarker;
+        return marker;
     }
   }
 

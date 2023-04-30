@@ -38,7 +38,6 @@ class RecycleMapComponent extends StatelessWidget {
           foregroundColor: Colors.white,
         ),
       ),
-      // TODO: figure out what I need to do here
       routerConfig: GoRouter(routes: [
         GoRoute(
           path: '/',
@@ -68,7 +67,6 @@ class _PlaceTrackerHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var mapState = Provider.of<MapState>(context);
-    mapState.initState();
     var viewType = mapState.viewType;
     return Scaffold(
       appBar: AppBar(
@@ -138,14 +136,10 @@ class MapState extends ChangeNotifier {
   late PlaceCategory selectedCategory;
   late PlaceTrackerViewType viewType;
 
-  void initState() {
-    // places = StubData.places; //TODO:get places from api rather than hard coded
-    // selectedCategory = PlaceCategory.binAvailable; // set binAvailable as default
-    // viewType = PlaceTrackerViewType.map;
-
+  MapState() {
     places = StubData.defaultPlaces
         .map((e) => RecycleResourcePlace.fromJson(e))
-        .toList(); //TODO:get places from api rather than hard coded
+        .toList();
     selectedCategory = PlaceCategory.fromJson(StubData.defaultCategory);
     viewType = PlaceTrackerViewType.fromJson(StubData.defaultTrackerViewType);
   }
