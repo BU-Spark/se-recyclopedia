@@ -20,7 +20,7 @@ class StubData {
       "directions":
           ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula"],
       "bins": ["first floor ", "second floor"],
-      "image" : "assets/recyclepedia_logo.jpg"
+      "image" : "/recyclepedia_logo.jpg"
     },
     {
       "id": '2',
@@ -32,7 +32,7 @@ class StubData {
       "description": "Bins At WarrenTowers, tap to find more information",
       "directions": ['<direction to find bin>'],
       "bins": ["first floor ", "second floor"],
-      "image": "asset/map_markers/blank_dark_blue.png",
+      "image": "/map_markers/blank_dark_blue.png",
     }
 
   ];

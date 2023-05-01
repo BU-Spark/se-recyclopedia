@@ -136,39 +136,8 @@ class _PlaceDetailsState extends State<PlaceDetails> {
   void initState() {
     _place = widget.place;
     _nameController.text = _place.name;
-    _descriptionController.text = _place.description ?? '';
+    _descriptionController.text = _place.description;
     return super.initState();
-  }
-  // unused feature
-  Widget _detailsBody() {
-    return ListView(
-      padding: const EdgeInsets.fromLTRB(24.0, 12.0, 24.0, 12.0),
-      children: [
-        _NameTextField(
-          controller: _nameController,
-          onChanged: (value) {
-            setState(() {
-              _place = _place.copyWith(name: value);
-            });
-          },
-        ),
-        _DescriptionTextField(
-          controller: _descriptionController,
-          onChanged: (value) {
-            setState(() {
-              _place = _place.copyWith(description: value);
-            });
-          },
-        ),
-        _Map(
-          center: _place.latLng,
-          mapController: _mapController,
-          onMapCreated: _onMapCreated,
-          markers: _markers,
-        ),
-        // const _Reviews(),
-      ],
-    );
   }
 
   void _onMapCreated(GoogleMapController controller) {
@@ -191,36 +160,6 @@ class _PlaceDetailsState extends State<PlaceDetails> {
   }
 }
 
-class _DescriptionTextField extends StatelessWidget {
-  final TextEditingController controller;
-
-  final ValueChanged<String> onChanged;
-
-  const _DescriptionTextField({
-    required this.controller,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
-      child: TextField(
-        decoration: const InputDecoration(
-          labelText: 'Description',
-          labelStyle: TextStyle(fontSize: 18.0),
-        ),
-        style: const TextStyle(fontSize: 20.0, color: Colors.black87),
-        maxLines: null,
-        autocorrect: true,
-        controller: controller,
-        onChanged: (value) {
-          onChanged(value);
-        },
-      ),
-    );
-  }
-}
 
 class _Map extends StatelessWidget {
   final LatLng center;
@@ -256,36 +195,6 @@ class _Map extends StatelessWidget {
           tiltGesturesEnabled: false,
           scrollGesturesEnabled: false,
         ),
-      ),
-    );
-  }
-}
-
-class _NameTextField extends StatelessWidget {
-  final TextEditingController controller;
-
-  final ValueChanged<String> onChanged;
-
-  const _NameTextField({
-    required this.controller,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 0, 0, 16),
-      child: TextField(
-        decoration: const InputDecoration(
-          labelText: 'Name',
-          labelStyle: TextStyle(fontSize: 18),
-        ),
-        style: const TextStyle(fontSize: 20, color: Colors.black87),
-        autocorrect: true,
-        controller: controller,
-        onChanged: (value) {
-          onChanged(value);
-        },
       ),
     );
   }
