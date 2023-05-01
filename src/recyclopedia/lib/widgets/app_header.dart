@@ -16,7 +16,7 @@ class AppHeader extends StatelessWidget {
     return AppBar(
       title: Column(
         children: [
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Flexible(child: appLogo),
             Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -27,10 +27,10 @@ class AppHeader extends StatelessWidget {
           ]),
           // SizedBox(height: 20),
           Container(
-            padding: EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20.0),
             child: TextField(
               onChanged: (value) => categoryProvider.search(value),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   filled: true,
                   border: OutlineInputBorder(),
                   fillColor: Colors.white,
@@ -40,8 +40,10 @@ class AppHeader extends StatelessWidget {
           ),
         ],
       ),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-      backgroundColor: Color(0XFF2F935C),
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+        ),
+      backgroundColor: const Color(0XFF2F935C),
       toolbarHeight: 210,
     );
   }

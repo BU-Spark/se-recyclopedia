@@ -24,7 +24,7 @@ class PlaceDetails extends StatefulWidget {
   State<PlaceDetails> createState() => _PlaceDetailsState();
 }
 
-class _PlaceDetailsState extends State<PlaceDetails> { // TODO: use fanjie Gao's page instead
+class _PlaceDetailsState extends State<PlaceDetails> {
   late RecycleResourcePlace _place;
   late String selectedBin;
   GoogleMapController? _mapController;

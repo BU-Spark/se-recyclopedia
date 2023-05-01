@@ -19,7 +19,9 @@ class ResourcesPage extends StatelessWidget {
           ],
         ),
         toolbarHeight: 210,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+        ),
       ),
       body: SafeArea(
         child: Column(
