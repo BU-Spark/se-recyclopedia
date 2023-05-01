@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recyclopedia/global_configuration.dart';
-import 'package:recyclopedia/models/area_location.dart';
+import 'package:recyclopedia/campus_map_unused/area_location.dart';
 
 class LocationProvider extends ChangeNotifier {
   late List<Map<String, dynamic>> locations;

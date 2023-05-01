@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recyclopedia/main.dart';
-import 'package:recyclopedia/providers/location_provider.dart';
-import 'package:recyclopedia/utils/navigate_to_location_modal.dart';
+import 'package:recyclopedia/campus_map_unused/location_provider.dart';
+import 'package:recyclopedia/campus_map_unused/navigate_to_location_modal.dart';
 // Temporary, for testing location modal
 // override if needed
 class CampusMap extends StatelessWidget {
