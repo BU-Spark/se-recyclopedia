@@ -76,11 +76,9 @@ class _PlaceDetailsState extends State<PlaceDetails> { // TODO: use fanjie Gao's
               Container(
                   padding: const EdgeInsets.only(bottom: 15),
                   child: Heading1(_place.name)),
-              Container(
-                child: Text(_place.address,
-                    style: GoogleFonts.poppins(
-                        fontSize: 18.0, fontWeight: FontWeight.normal)),
-              ),
+              Text(_place.address,
+                  style: GoogleFonts.poppins(
+                      fontSize: 18.0, fontWeight: FontWeight.normal)),
               ItemPreview({"image": _place.image}),
               Expanded(
                 // height: 100,
@@ -141,7 +139,7 @@ class _PlaceDetailsState extends State<PlaceDetails> { // TODO: use fanjie Gao's
     _descriptionController.text = _place.description ?? '';
     return super.initState();
   }
-
+  // unused feature
   Widget _detailsBody() {
     return ListView(
       padding: const EdgeInsets.fromLTRB(24.0, 12.0, 24.0, 12.0),

@@ -2,11 +2,8 @@
 // getting data from target API
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:recyclopedia/map_component/latlngJson.dart';
-
-// import 'package:recyclepidia_map_page/map_component/recycle_resource_place.dart';
+// import 'package:recyclepidia/map_component/recycle_resource_place.dart';
 import 'recycle_resource_place.dart';
-import 'recycle_map_component.dart';
 
 class StubData {
   static String defaultTrackerViewType = "map";
@@ -18,13 +15,26 @@ class StubData {
       "name": "food",
       "building": "123 Beverly Hills",
       "address": "33.8830",
-      "description": "-118.4338",
+      "description": "Bins At GSU, tap to find more information",
       "category": "binAvailable",
       "directions":
           ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula"],
-      "bins": ["first floor", "second floor"],
-      "image" : "assets/logo.jpg"
+      "bins": ["first floor ", "second floor"],
+      "image" : "assets/recyclepedia_logo.jpg"
+    },
+    {
+      "id": '2',
+      "latLng": {"latitude": 42.3495, "longitude": -71.1048},// 42.3495° N, 71.1048° W
+      "name": 'Warren Towers Recycle Box',
+      "building": "George Sherman Union",
+      "address": "700 Commonwealth Ave, Boston, MA 02215",
+      "category": "binUnavailable",
+      "description": "Bins At WarrenTowers, tap to find more information",
+      "directions": ['<direction to find bin>'],
+      "bins": ["first floor ", "second floor"],
+      "image": "asset/map_markers/blank_dark_blue.png",
     }
+
   ];
   static List<RecycleResourcePlace> places = [
     RecycleResourcePlace(
@@ -45,8 +55,8 @@ class StubData {
       name: 'Warren Towers Recycle Box',
       building: "George Sherman Union",
       address: "700 Commonwealth Ave, Boston, MA 02215",
+      description: "Bins At WarrenTowers, tap to find more information",
       category: PlaceCategory.binAvailable,
-      // description is null, for testing purpose
       directions: ['<direction to find bin>'],
       bins: ["first floor", "second floor"],
       image: "./asset/gsu.jpg",

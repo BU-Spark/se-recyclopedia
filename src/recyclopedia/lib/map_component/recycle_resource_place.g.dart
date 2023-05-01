@@ -13,7 +13,7 @@ RecycleResourcePlace _$RecycleResourcePlaceFromJson(
       latLng: json['latLng'],
       name: json['name'] as String,
       category: $enumDecode(_$PlaceCategoryEnumMap, json['category']),
-      description: json['description'] as String?,
+      description: json['description'] as String,
       directions: json['directions'] as List,
       building: json['building'] as String?,
       address: json['address'] as String,

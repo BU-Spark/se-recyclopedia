@@ -78,27 +78,9 @@ class _PlaceMapState extends State<PlaceMap> {
   MapConfiguration? _configuration;
 
   @override
-  void initState() {
-    super.initState();
-    context.read<MapState>().addListener(_watchMapConfigurationChanges);
-  }
-
-  @override
-  void dispose() {
-    context.read<MapState>().removeListener(_watchMapConfigurationChanges);
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    _watchMapConfigurationChanges();
     var state = Provider.of<MapState>(context, listen: true);
-    return Builder(builder: (context) {
-      // We need this additional builder here so that we can pass its context to
-      // _AddPlaceButtonBar's onSavePressed callback. This callback shows a
-      // SnackBar and to do this, we need a build context that has Scaffold as
-      // an ancestor.
-      return Center(
+    return Center(
         child: Stack(
           children: [
             GoogleMap(
@@ -116,11 +98,6 @@ class _PlaceMapState extends State<PlaceMap> {
               visible: _pendingMarker == null,
               onChanged: _switchSelectedCategory,
             ),
-            // _AddPlaceButtonBar(
-            //   visible: _pendingMarker != null,
-            //   onSavePressed: () => _confirmAddPlace(context),
-            //   onCancelPressed: _cancelAddPlace,
-            // ),
             _MapFabs(
               visible: _pendingMarker == null,
               onToggleMapTypePressed: _onToggleMapTypePressed,
@@ -128,7 +105,6 @@ class _PlaceMapState extends State<PlaceMap> {
           ],
         ),
       );
-    });
   }
 
   Future<void> onMapCreated(GoogleMapController controller) async {
@@ -183,45 +159,6 @@ class _PlaceMapState extends State<PlaceMap> {
     );
     _markedPlaces[marker] = place;
     return marker;
-  }
-
-  Future<void> _watchMapConfigurationChanges() async {
-    final mapState = context.read<MapState>();
-    _configuration ??= MapConfiguration.of(mapState);
-    final newConfiguration = MapConfiguration.of(mapState);
-
-    // Since we manually update [_configuration] when place or selectedCategory
-    // changes come from the [place_map], we should only enter this if statement
-    // when returning to the [place_map] after changes have been made from
-    // [place_list].
-    if (_configuration != newConfiguration) {
-      if (_configuration!.places == newConfiguration.places &&
-          _configuration!.selectedCategory !=
-              newConfiguration.selectedCategory) {
-        // If the configuration change is only a category change, just update
-        // the marker visibilities.
-        await _showPlacesForSelectedCategory(newConfiguration.selectedCategory);
-      } else {
-        // At this point, we know the places have been updated from the list
-        // view. We need to reconfigure the map to respect the updates.
-        for (final place in newConfiguration.places) {
-          final oldPlace =
-          _configuration!.places.firstWhereOrNull((p) => p.id == place.id);
-          if (oldPlace == null || oldPlace != place) {
-            // New place or updated place.
-            _updateExistingPlaceMarker(place: place);
-          }
-        }
-
-        await _zoomToFitPlaces(
-          _getPlacesForCategory(
-            newConfiguration.selectedCategory,
-            newConfiguration.places,
-          ),
-        );
-      }
-      _configuration = newConfiguration;
-    }
   }
 
   void _onToggleMapTypePressed() {
@@ -321,14 +258,14 @@ class _PlaceMapState extends State<PlaceMap> {
       BuildContext context, PlaceCategory category) async {
     var marker = BitmapDescriptor.fromAssetImage(
             createLocalImageConfiguration(context, size: const Size(32,48)),
-            'blank_green.png');
+            '/map_markers/blank_green.png');
     switch (category) {
       case PlaceCategory.binAvailable: 
         return marker;
       case PlaceCategory.binUnavailable:
         marker = BitmapDescriptor.fromAssetImage(
             createLocalImageConfiguration(context, size: const Size(32,48)),
-            'blank_light_blue.png');
+            '/map_markers/blank_grey.png');
         return marker;
       default:
         return marker;

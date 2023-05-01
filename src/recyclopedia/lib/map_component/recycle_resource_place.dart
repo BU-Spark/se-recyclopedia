@@ -23,7 +23,7 @@ class RecycleResourcePlace {
 
   final String name;
   final PlaceCategory category;
-  final String? description; // this ? means that description can be null value
+  final String description; // this ? means that description can be null value
   final List
       directions; // no ? means that this field must be something else than null
   final String? building;
@@ -36,7 +36,7 @@ class RecycleResourcePlace {
     required latLng,
     required this.name,
     required this.category,
-    this.description,
+    required this.description,
     required this.directions,
     this.building,
     required this.address,
