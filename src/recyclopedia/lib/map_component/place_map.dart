@@ -77,6 +77,75 @@ class _PlaceMapState extends State<PlaceMap> {
 
   MapConfiguration? _configuration;
 
+
+
+/////////////////////////
+  @override
+  void initState() {
+    super.initState();
+    context.read<MapState>().addListener(_watchMapConfigurationChanges);
+  }
+
+  @override
+  void dispose() {
+    context.read<MapState>().removeListener(_watchMapConfigurationChanges);
+    super.dispose();
+  }
+
+  Future<void> _watchMapConfigurationChanges() async {
+    final mapState = context.read<MapState>();
+    _configuration ??= MapConfiguration.of(mapState);
+    final newConfiguration = MapConfiguration.of(mapState);
+
+    // Since we manually update [_configuration] when place or selectedCategory
+    // changes come from the [place_map], we should only enter this if statement
+    // when returning to the [place_map] after changes have been made from
+    // [place_list].
+    if (_configuration != newConfiguration) {
+      if (_configuration!.places == newConfiguration.places &&
+          _configuration!.selectedCategory !=
+              newConfiguration.selectedCategory) {
+        // If the configuration change is only a category change, just update
+        // the marker visibilities.
+        await _showPlacesForSelectedCategory(newConfiguration.selectedCategory);
+      } else {
+        // At this point, we know the places have been updated from the list
+        // view. We need to reconfigure the map to respect the updates.
+        for (final place in newConfiguration.places) {
+          final oldPlace =
+              _configuration!.places.firstWhereOrNull((p) => p.id == place.id);
+          if (oldPlace == null || oldPlace != place) {
+            // New place or updated place.
+            _updateExistingPlaceMarker(place: place);
+          }
+        }
+
+        await _zoomToFitPlaces(
+          _getPlacesForCategory(
+            newConfiguration.selectedCategory,
+            newConfiguration.places,
+          ),
+        );
+      }
+      _configuration = newConfiguration;
+    }
+  }
+  void _updateExistingPlaceMarker({required RecycleResourcePlace place}) {
+    var marker = _markedPlaces.keys
+        .singleWhere((value) => _markedPlaces[value]!.id == place.id);
+
+    setState(() {
+      final updatedMarker = marker.copyWith(
+        infoWindowParam: InfoWindow(
+          title: place.name,
+          snippet: place.description != "" ? '${place.description} ' : null,
+        ),
+      );
+      _updateMarker(marker: marker, updatedMarker: updatedMarker, place: place);
+    });
+  }
+//////////////////////////////
+
   @override
   Widget build(BuildContext context) {
     var state = Provider.of<MapState>(context, listen: true);
@@ -195,22 +264,6 @@ class _PlaceMapState extends State<PlaceMap> {
   Future<void> _switchSelectedCategory(PlaceCategory category) async {
     Provider.of<MapState>(context, listen: false).setSelectedCategory(category);
     await _showPlacesForSelectedCategory(category);
-  }
-
-  void _updateExistingPlaceMarker({required RecycleResourcePlace place}) {
-    var marker = _markedPlaces.keys
-        .singleWhere((value) => _markedPlaces[value]!.id == place.id);
-
-    setState(() {
-      final updatedMarker = marker.copyWith(
-        infoWindowParam: InfoWindow(
-          title: place.name,
-          snippet:
-          place.description != "" ? '${place.description} ' : null,
-        ),
-      );
-      _updateMarker(marker: marker, updatedMarker: updatedMarker, place: place);
-    });
   }
 
   void _updateMarker({
