@@ -49,7 +49,7 @@ class ResourcesPage extends StatelessWidget {
                       launchUrl(uri);
                     },
                     child: NewsCard(
-                      imgUrl: 'assets/images/testimage.jpg',
+                      imgUrl: 'assets/images/testimage2.jpg',
                       desc: "Learn about BU's plan of action and get involved",
                       title: "Take Action",
                       postUrl: "google.com",
@@ -63,7 +63,7 @@ class ResourcesPage extends StatelessWidget {
                       launchUrl(uri);
                     },
                     child: NewsCard(
-                      imgUrl: 'assets/images/testimage.jpg',
+                      imgUrl: 'assets/images/testimage3.jpg',
                       desc: "View the active programs by BU Sustainability",
                       title: "Programs and Project",
                       postUrl: "google.com",
@@ -77,7 +77,7 @@ class ResourcesPage extends StatelessWidget {
                       launchUrl(uri);
                     },
                     child: NewsCard(
-                      imgUrl: 'assets/images/testimage.jpg',
+                      imgUrl: 'assets/images/testimage4.jpg',
                       desc: "View BU's 2022 Sustainable Campus Index",
                       title: "Our Work so Far",
                       postUrl: "google.com",
