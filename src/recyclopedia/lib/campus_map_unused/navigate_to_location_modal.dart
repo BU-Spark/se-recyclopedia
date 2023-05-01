@@ -3,7 +3,7 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:recyclopedia/campus_map_unused/area_location.dart';
-import 'package:recyclopedia/screens/location_modal.dart';
+import 'package:recyclopedia/campus_map_unused/location_modal.dart';
 
 
 void navigateToLocationModal(BuildContext context, AreaLocation location) {

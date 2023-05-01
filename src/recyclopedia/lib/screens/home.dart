@@ -18,12 +18,12 @@ class Home extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           // title "Popular categories", four default Popular categories, widget AllCategory
           children: [
-            AppHeader(),
-            SizedBox(height: 10),
+            const AppHeader(),
+            const SizedBox(height: 10),
             Text("Popular Category",
                 style: GoogleFonts.poppins(
                     fontSize: 27.0, fontWeight: FontWeight.bold)),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Column(
               children: <Widget>[
                 Container(
@@ -53,7 +53,7 @@ class Home extends StatelessWidget {
                       style: GoogleFonts.poppins(
                           fontSize: 15.0, fontWeight: FontWeight.bold)),
                 ),
-                AllCategory()
+                const AllCategory(),
               ],
             )
           ],

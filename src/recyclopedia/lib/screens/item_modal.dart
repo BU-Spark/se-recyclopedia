@@ -36,7 +36,7 @@ class ItemModal extends StatelessWidget {
               ItemPreview({"name": itemName, "image": itemImage}),
               Container(
                   padding: const EdgeInsets.only(top: 30, bottom: 15),
-                  child: Heading2("More information")),
+                  child: const Heading2("More information")),
               Expanded(
                 // height: 100,
                 child: ListView.builder(
@@ -61,7 +61,7 @@ class ItemModal extends StatelessWidget {
                   child: const Text('Find Bin'),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               Container(),

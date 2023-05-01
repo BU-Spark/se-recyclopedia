@@ -50,11 +50,9 @@ class _LocationModalState extends State<LocationModal> {
               Container(
                   padding: const EdgeInsets.only(bottom: 15),
                   child: Heading1(locationName)),
-              Container(
-                child: Text(locationAddress,
-                    style: GoogleFonts.poppins(
-                        fontSize: 18.0, fontWeight: FontWeight.normal)),
-              ),
+              Text(locationAddress,
+                  style: GoogleFonts.poppins(
+                      fontSize: 18.0, fontWeight: FontWeight.normal)),
               ItemPreview({"image": locationImage}),
               Expanded(
                 // height: 100,
@@ -74,7 +72,7 @@ class _LocationModalState extends State<LocationModal> {
                           });
                         },
                         child: Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             border: Border(
                               bottom: BorderSide(color: Colors.green),
                             ),

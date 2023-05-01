@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:recyclopedia/all.dart';
-import 'package:recyclopedia/screens/all.dart';
 
 class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
   @override
   State<MainPage> createState() => _MainPageState();
 }

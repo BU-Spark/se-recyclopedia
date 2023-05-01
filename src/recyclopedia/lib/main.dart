@@ -14,10 +14,10 @@ import 'package:recyclopedia/all.dart';
 import 'package:recyclopedia/providers/assets_provider.dart';
 import 'package:recyclopedia/providers/category_provider.dart';
 // import 'package:recyclopedia/providers/location_provider.dart';
-import 'package:recyclopedia/map_component/recycle_map_component.dart';
+// import 'package:recyclopedia/map_component/recycle_map_component.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => MapState(), child: const RecycleMapComponent(),)
       ],
       child: MaterialApp(
-        title: 'Namer App',
+        title: 'Recyclepedia',
         theme: ThemeData(
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
