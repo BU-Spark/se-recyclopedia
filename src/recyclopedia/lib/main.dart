@@ -1,23 +1,14 @@
-// import 'package:flutter/material.dart';
-// import 'package:recyclopedia/map_component/recycle_map_component.dart';
-// import 'package:provider/provider.dart';
-// void main() {
-//   runApp(ChangeNotifierProvider(
-//     create: (context) => MapState(),
-//     child: const RecycleMapComponent(),
-//   ));
-// }
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recyclopedia/all.dart';
 import 'package:recyclopedia/providers/assets_provider.dart';
 import 'package:recyclopedia/providers/category_provider.dart';
-// import 'package:recyclopedia/providers/location_provider.dart';
-// import 'package:recyclopedia/map_component/recycle_map_component.dart';
+import 'package:recyclopedia/providers/location_provider.dart';
+import 'package:recyclopedia/providers/location_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -31,7 +22,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => ResourcesList()),
         ChangeNotifierProvider(create: (context) => CategoryProvider()),
         ChangeNotifierProvider(create: (context) => AssetsProvider()),
-        // ChangeNotifierProvider(create: (context) => LocationProvider()),
+        ChangeNotifierProvider(create: (context) => LocationProvider()),
         ChangeNotifierProvider(create: (context) => MapState())
       ],
       child: MaterialApp(

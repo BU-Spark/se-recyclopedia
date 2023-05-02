@@ -8,7 +8,7 @@ import 'package:recyclopedia/widgets/all.dart';
 // TODO: each section is taking too much vertical space
 // widget for showing all categories in alphabetical groups
 class AllCategory extends StatelessWidget {
-  const AllCategory({super.key});
+  AllCategory({super.key});
   @override
   Widget build(BuildContext context) {
     var categoryProvider = context.watch<CategoryProvider>();
@@ -17,7 +17,7 @@ class AllCategory extends StatelessWidget {
     return Column(
       // title "All Category", All Categories from database
       children: [
-        const SizedBox(height: 20),
+        SizedBox(height: 20),
         Text("All Category",
             style: GoogleFonts.poppins(
                 fontSize: 27.0, fontWeight: FontWeight.bold)),
@@ -26,7 +26,7 @@ class AllCategory extends StatelessWidget {
           child: GridView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 1,
                 mainAxisSpacing: 20,
                 crossAxisSpacing: 20,

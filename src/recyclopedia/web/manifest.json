@@ -1,6 +1,6 @@
 {
-    "name": "recyclepidia_map_page",
-    "short_name": "recyclepidia_map_page",
+    "name": "recyclopedia",
+    "short_name": "recyclopedia",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

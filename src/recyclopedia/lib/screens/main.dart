@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recyclopedia/all.dart';
+import 'package:recyclopedia/screens/all.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({super.key});
-
   @override
   State<MainPage> createState() => _MainPageState();
 }
@@ -19,11 +17,10 @@ class _MainPageState extends State<MainPage> {
         page = Home();
         break;
       case 1:
-        page = const RecycleMapComponent();
-        // page = CampusMap();
+        page = CampusMap();
         break;
       case 2:
-        page = const ResourcesPage();
+        page = ResourcesPage();
         break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');

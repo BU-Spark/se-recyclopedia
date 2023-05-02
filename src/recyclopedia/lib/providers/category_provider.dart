@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recyclopedia/global_configuration.dart';
 
 class CategoryProvider extends ChangeNotifier {
+  String title = "Popular Category";
   late List allCategories;
   late List popularCategoryName;
   late List popularCategories;
@@ -17,8 +18,10 @@ class CategoryProvider extends ChangeNotifier {
   }
   void search(String keywords) {
     if (keywords.isEmpty) {
+      title = "Popular Category";
       displayedCategories = popularCategories;
     } else {
+      title = "Search Results";
       displayedCategories = allCategories
           .where((item) =>
               item["name"].toLowerCase().contains(keywords.toLowerCase()))

@@ -9,6 +9,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var categoryProvider = context.watch<CategoryProvider>();
+    var title = categoryProvider.title;
     var categories = categoryProvider.displayedCategories;
 
     return Center(
@@ -18,12 +19,12 @@ class Home extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           // title "Popular categories", four default Popular categories, widget AllCategory
           children: [
-            const AppHeader(),
-            const SizedBox(height: 10),
-            Text("Popular Category",
+            AppHeader(),
+            SizedBox(height: 10),
+            Text(title,
                 style: GoogleFonts.poppins(
                     fontSize: 27.0, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             Column(
               children: <Widget>[
                 Container(
@@ -53,7 +54,7 @@ class Home extends StatelessWidget {
                       style: GoogleFonts.poppins(
                           fontSize: 15.0, fontWeight: FontWeight.bold)),
                 ),
-                const AllCategory(),
+                AllCategory()
               ],
             )
           ],

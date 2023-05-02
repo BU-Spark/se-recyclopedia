@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:recyclopedia/providers/assets_provider.dart';
 import 'package:recyclopedia/providers/category_provider.dart';
-import 'package:recyclopedia/screens/home.dart';
 
 class AppHeader extends StatelessWidget {
   const AppHeader({super.key});
@@ -16,7 +15,7 @@ class AppHeader extends StatelessWidget {
     return AppBar(
       title: Column(
         children: [
-          const SizedBox(height: 30),
+          SizedBox(height: 30),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Flexible(child: appLogo),
             Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -27,10 +26,10 @@ class AppHeader extends StatelessWidget {
           ]),
           // SizedBox(height: 20),
           Container(
-            padding: const EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(20.0),
             child: TextField(
               onChanged: (value) => categoryProvider.search(value),
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                   filled: true,
                   border: OutlineInputBorder(),
                   fillColor: Colors.white,
@@ -40,10 +39,10 @@ class AppHeader extends StatelessWidget {
           ),
         ],
       ),
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
         ),
-      backgroundColor: const Color(0XFF2F935C),
+      backgroundColor: Color(0XFF2F935C),
       toolbarHeight: 210,
     );
   }
