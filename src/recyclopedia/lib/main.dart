@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => CategoryProvider()),
         ChangeNotifierProvider(create: (context) => AssetsProvider()),
         // ChangeNotifierProvider(create: (context) => LocationProvider()),
-        ChangeNotifierProvider(create: (context) => MapState(), child: const RecycleMapComponent(),)
+        ChangeNotifierProvider(create: (context) => MapState())
       ],
       child: MaterialApp(
         title: 'Recyclepedia',
