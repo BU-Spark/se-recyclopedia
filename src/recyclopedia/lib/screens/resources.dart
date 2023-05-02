@@ -23,23 +23,71 @@ class ResourcesPage extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          GestureDetector(
-            onTap: () {
-              // print("card selected");
-              const url = 'https://www.bu.edu/sustainability/about/';
-              final uri = Uri.parse(url);
-              launchUrl(uri);
-            },
-            child: NewsCard(
-              imgUrl: 'assets/images/testimage.jpg',
-              desc:
-                  "Learn more about BUs green initiatives and environmental impact",
-              title: "BU Sustainability",
-              postUrl: "google.com",
-            ),
-          )
-        ]),
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Expanded(
+                  child: SingleChildScrollView(
+                child: Column(children: <Widget>[
+                  GestureDetector(
+                    onTap: () {
+                      const url = 'https://www.bu.edu/sustainability/about/';
+                      final uri = Uri.parse(url);
+                      launchUrl(uri);
+                    },
+                    child: NewsCard(
+                      imgUrl: 'assets/images/testimage.jpg',
+                      desc:
+                          "Learn more about BUs green initiatives and environmental impact",
+                      title: "BU Sustainability",
+                      postUrl: "google.com",
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      const url =
+                          'https://www.bu.edu/sustainability/take-action/';
+                      final uri = Uri.parse(url);
+                      launchUrl(uri);
+                    },
+                    child: NewsCard(
+                      imgUrl: 'assets/images/testimage2.jpg',
+                      desc: "Learn about BU's plan of action and get involved",
+                      title: "Take Action",
+                      postUrl: "google.com",
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      const url =
+                          'https://www.bu.edu/sustainability/vision-progress/programs-projects/';
+                      final uri = Uri.parse(url);
+                      launchUrl(uri);
+                    },
+                    child: NewsCard(
+                      imgUrl: 'assets/images/testimage3.jpg',
+                      desc: "View the active programs by BU Sustainability",
+                      title: "Programs and Project",
+                      postUrl: "google.com",
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      const url =
+                          'https://www.bu.edu/sustainability/2022/09/19/2022-sustainable-campus-index/';
+                      final uri = Uri.parse(url);
+                      launchUrl(uri);
+                    },
+                    child: NewsCard(
+                      imgUrl: 'assets/images/testimage4.jpg',
+                      desc: "View BU's 2022 Sustainable Campus Index",
+                      title: "Our Work so Far",
+                      postUrl: "google.com",
+                    ),
+                  )
+                ]),
+              ))
+            ]),
       ),
     ));
   }
