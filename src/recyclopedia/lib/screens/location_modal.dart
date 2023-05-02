@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:recyclopedia/widgets/all.dart';
 
+@Deprecated("use PlaceDetails in place_details.dart")
 class LocationModal extends StatefulWidget {
   final String name;
   final String address;

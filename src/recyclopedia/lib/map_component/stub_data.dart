@@ -12,29 +12,32 @@ class StubData {
     {
       "id": "1",
       "latLng": {"latitude": 42.3508, "longitude": -71.1089},
-      "name": "food",
-      "building": "123 Beverly Hills",
-      "address": "33.8830",
+      "name": "George Sherman Union",
+      "building": "GSU",
+      "address": "George Sherman Union",
       "description": "Bins At GSU, tap to find more information",
       "category": "binAvailable",
-      "directions":
-          ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula"],
+      "directions": [
+        ["Go to City Convenience,","the bin is right in front of it."],["Go to the first floor."]
+      ],
       "bins": ["first floor ", "second floor"],
-      "image" : "/recyclepedia_logo.jpg"
+      "image": "/gsu.jpg"
     },
     {
       "id": '2',
-      "latLng": {"latitude": 42.3495, "longitude": -71.1048},// 42.3495° N, 71.1048° W
-      "name": 'Warren Towers Recycle Box',
-      "building": "George Sherman Union",
+      "latLng": {
+        "latitude": 42.3495,
+        "longitude": -71.1048
+      }, // 42.3495° N, 71.1048° W
+      "name": 'Warren Towers',
+      "building": "Warren Towers",
       "address": "700 Commonwealth Ave, Boston, MA 02215",
       "category": "binUnavailable",
       "description": "Bins At WarrenTowers, tap to find more information",
-      "directions": ['<direction to find bin>'],
+      "directions": [["In front of the main entrance."], ["Go to first floor."]],
       "bins": ["first floor ", "second floor"],
-      "image": "/map_markers/blank_dark_blue.png",
+      "image": "/warren.jpg",
     }
-
   ];
   static List<RecycleResourcePlace> places = [
     RecycleResourcePlace(
@@ -107,7 +110,6 @@ class BULocation {
     required this.locationFullName,
     this.locationSubName,
   });
-
 }
 
 class LocationMapping {
