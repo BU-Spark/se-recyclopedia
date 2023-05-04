@@ -39,7 +39,9 @@ class AppHeader extends StatelessWidget {
           ),
         ],
       ),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+        ),
       backgroundColor: Color(0XFF2F935C),
       toolbarHeight: 210,
     );

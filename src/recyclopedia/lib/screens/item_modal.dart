@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:recyclopedia/all.dart';
+import 'package:recyclopedia/map_component/recycle_map_component.dart';
+import 'package:recyclopedia/utils/navigate_to_map.dart';
 import 'package:recyclopedia/widgets/all.dart';
 
 class ItemModal extends StatelessWidget {
@@ -13,6 +17,7 @@ class ItemModal extends StatelessWidget {
   Widget build(BuildContext context) {
     final ButtonStyle style = ElevatedButton.styleFrom(
         textStyle: const TextStyle(fontSize: 20), alignment: Alignment.center);
+        var mapState = Provider.of<MapState>(context);
 
     return Material(
       child: Scaffold(
@@ -57,7 +62,12 @@ class ItemModal extends StatelessWidget {
               Center(
                 child: ElevatedButton(
                   style: style,
-                  onPressed: () {},
+                  onPressed: () {
+                    // TODO: API
+                    // TODO: navigate back from Map
+                    mapState.setSelectedCategory(PlaceCategory.binAvailable);
+                    navigateToMap(context);
+                    },
                   child: const Text('Find Bin'),
                 ),
               ),
