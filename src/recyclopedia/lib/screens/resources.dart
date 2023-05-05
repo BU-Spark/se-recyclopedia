@@ -1,9 +1,30 @@
+import 'dart:convert';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:recyclopedia/widgets/news_card.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:http/http.dart' as http;
+import 'package:recyclopedia/widgets/ResourceClass.dart';
 
 class ResourcesPage extends StatelessWidget {
+  List hold = [];
+
+  Future<List<Resource>> getAll() async {
+    var data = await http.get(Uri.parse(""));
+    var jsonData = json.decode(data.body);
+
+    final resources = jsonData['data'];
+    resources.map((resourceJson) => Resource.fromJson(resourceJson)).toList();
+    hold.add(resources);
+    return resources;
+  }
+
+  init() {
+    getAll();
+  }
+  // late Future<List<Resource>> resources = getAll();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,62 +48,13 @@ class ResourcesPage extends StatelessWidget {
               Expanded(
                   child: SingleChildScrollView(
                 child: Column(children: <Widget>[
-                  GestureDetector(
-                    onTap: () {
-                      const url = 'https://www.bu.edu/sustainability/about/';
-                      final uri = Uri.parse(url);
-                      launchUrl(uri);
-                    },
-                    child: NewsCard(
-                      imgUrl: 'assets/images/testimage.jpg',
-                      desc:
-                          "Learn more about BUs green initiatives and environmental impact",
-                      title: "BU Sustainability",
-                      postUrl: "google.com",
+                  for (var item in hold)
+                    NewsCard(
+                      imgUrl: item.image,
+                      desc: item.description,
+                      title: item.title,
+                      postUrl: item.link,
                     ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      const url =
-                          'https://www.bu.edu/sustainability/take-action/';
-                      final uri = Uri.parse(url);
-                      launchUrl(uri);
-                    },
-                    child: NewsCard(
-                      imgUrl: 'assets/images/testimage2.jpg',
-                      desc: "Learn about BU's plan of action and get involved",
-                      title: "Take Action",
-                      postUrl: "google.com",
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      const url =
-                          'https://www.bu.edu/sustainability/vision-progress/programs-projects/';
-                      final uri = Uri.parse(url);
-                      launchUrl(uri);
-                    },
-                    child: NewsCard(
-                      imgUrl: 'assets/images/testimage3.jpg',
-                      desc: "View the active programs by BU Sustainability",
-                      title: "Programs and Project",
-                      postUrl: "google.com",
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      const url =
-                          'https://www.bu.edu/sustainability/2022/09/19/2022-sustainable-campus-index/';
-                      final uri = Uri.parse(url);
-                      launchUrl(uri);
-                    },
-                    child: NewsCard(
-                      imgUrl: 'assets/images/testimage4.jpg',
-                      desc: "View BU's 2022 Sustainable Campus Index",
-                      title: "Our Work so Far",
-                      postUrl: "google.com",
-                    ),
-                  )
                 ]),
               ))
             ]),
