@@ -1,5 +1,13 @@
-# recyclopedia
->This repository contains the app recyclopedia
+# Recyclopedia
+
+Recyclopedia is a muti-platform mobile application that helps people to understand recycling information. 
+
+This app is aiming to addresses the issue of 
+1. Hard to locate the recycle trash bins in school  
+2. Not being able to identify the categories of the trash   
+
+ and provide solutions that promote better waste management practices in Boston University’s area.
+
 
 ## Dataflow
 
@@ -83,12 +91,41 @@ For additional help setting up the plugin, see the plugin's
 [README](https://pub.dev/packages/google_maps_flutter)
 page.
 
-### Running Project In Differnet IDE
+## Run The Project
 
-#### Running Project Using VSCode
+First, make sure the environment is set up as instructed from the getting started section. 
+To be more specific, make sure that the dianostic from **Flutter Doctor** are resolved properly. 
 
-#### Running Project Using Android Studio
+### Running Project Using VSCode
 
+1. Make sure the vscode extension for (Dart)[vscode:extension/Dart-Code.dart-code] and (Flutter)[vscode:extension/Dart-Code.flutter] is installed. 
+
+![alt text](./readme_assets/install%20dart%20extension.png)
+![alt text](./readme_assets/flutter%20extension.png)
+
+2. Direct to the root directory (if you have not already done so) of the project by running  
+`cd src/recyclopedia`
+
+3. Select your environment to run. e.g. If you want to use Android phone to run the project, select an Android phone enmulator. 
+
+4. Click on the top-right trangle to start.
+
+![alt text](./readme_assets/vscode.png)
+
+### Running Project Using Android Studio
+
+1. Direct to the root directory (if you have not already done so) of the project by running  
+`cd src/recyclopedia`
+
+2. Add configeration if you haven't done so.
+![alt text](./readme_assets/Step%201.png)
+![alt text](./readme_assets/Step%202.jpg)
+
+3. Select your environment to run. e.g. If you want to use Android phone to run the project, select an Android phone enmulator. 
+![alt text](./readme_assets/Step%203.jpg)
+
+4. Click on the top-right trangle to start.
+![alt text](./readme_assets/Step%204.png)
 
 
 ## Risks and Limitations
