@@ -134,7 +134,10 @@ To be more specific, make sure that the dianostic from **Flutter Doctor** are re
 3. On the home page, for alphabetical categorizing the trash items. Sections will take at least two rows of space even if there are at most one row of contents to display, resulting in extra spaces between sections.
 
 ## Risks and Limitations
-This section identifies foreseeable harms and misunderstandings...
+>This section identifies foreseeable harms and misunderstandings...
+This app should not be used to locate the user, it currently lacks the ability to access the location of the user while using the app.
+
+This app is currently in beta, contents displayed are solely for testing purposes. Please regard with caution.
 
 ## More Information
 ...
