@@ -43,6 +43,8 @@ components gets data from and listens to providers for data updates
 ### Environment Setup
 #### prerequisites
 Flutter 3.7.3 [installation guide](https://docs.flutter.dev/get-started/install)
+
+After the installation, run the following command in terminal/powershell  
 ```
 cd src/recyclopedia/
 flutter pub get
