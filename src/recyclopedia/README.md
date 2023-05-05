@@ -1,3 +1,4 @@
-# recyclopedia
+# Recyclopedia Details 
 
-This folder is the root folder of the Flutter project, recyclopedia.
+This file contains a detailed explaination of each of the components within this project. 
+
