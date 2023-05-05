@@ -11,7 +11,8 @@ class ResourcesPage extends StatelessWidget {
   List hold = [];
 
   Future<List<Resource>> getAll() async {
-    var data = await http.get(Uri.parse(""));
+    var data = await http.get(Uri.parse(
+        "https://strapi-development-6fb1.up.railway.app/api/resource"));
     var jsonData = json.decode(data.body);
 
     final resources = jsonData['data'];
