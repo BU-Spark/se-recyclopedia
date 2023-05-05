@@ -2,6 +2,9 @@
 
 This folder is the root folder of the Flutter project, recyclopedia.
 
+## API docs
+[API documentation](doc/api/index.html)
+ 
 ## Source File Structure
 ```
 lib
