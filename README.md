@@ -98,7 +98,7 @@ To be more specific, make sure that the dianostic from **Flutter Doctor** are re
 
 ### Running Project Using VSCode
 
-1. Make sure the vscode extension for (Dart)[vscode:extension/Dart-Code.dart-code] and (Flutter)[vscode:extension/Dart-Code.flutter] is installed. 
+1. Make sure the vscode extension for [Dart](vscode:extension/Dart-Code.dart-code) and [Flutter](vscode:extension/Dart-Code.flutter) is installed. 
 
 ![alt text](./readme_assets/install%20dart%20extension.png)
 ![alt text](./readme_assets/flutter%20extension.png)
