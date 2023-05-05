@@ -3,7 +3,7 @@
 This folder is the root folder of the Flutter project, recyclopedia.
 
 ## API docs
-[API documentation](doc/api/index.html)
+[API documentation](https://raw.githack.com/BU-Spark/se-recyclopedia/dev/src/recyclopedia/doc/api/index.html)
  
 ## Source File Structure
 ```
