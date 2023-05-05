@@ -24,7 +24,9 @@ components gets data from and listens to providers for data updates
 7. [...](#?)
 
 ## Introduction
-This repository contains the app recyclopedia...
+As Boston University strives to become a more sustainable campus, we see a disconnect between the university’s Zero Waste goals and student understanding regarding what is recyclable and what is not.  The main reason for this disconnect is the lack of easily accessible resources to help students sort their waste accurately and confidently. Sustainability@BU has already incorporated the Recyclopedia Resource, which can be found on the Sustainability@BU website, into their list of resources available to students. This resource addresses that disconnect by allowing users to type in an item and telling them whether the item is recyclable or not, as well as what must be done to the item to prepare it for recycling like rinsing out a food container. 
+We believe that converting the existing Recyclopedia Resource into an application for waste sorting would be a straightforward way to increase the accuracy of student recycling and help students feel more confident in the decisions they make when sorting waste.
+
 ### Flutter documentation
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
@@ -38,6 +40,7 @@ samples, guidance on mobile development, and a full API reference.
 ## Getting Started
 
 ### Environment Setup
+#### prerequisites
 Flutter 3.7.3 [installation guide](https://docs.flutter.dev/get-started/install)
 ```
 cd src/recyclopedia/
