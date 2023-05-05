@@ -8,8 +8,6 @@ This app is aiming to addresses the issue of
 
  and provide solutions that promote better waste management practices in Boston University’s area.
 
-
-
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Technical Detail](#technical-detail)
@@ -18,7 +16,6 @@ This app is aiming to addresses the issue of
 5. [Known bugs](#known-bugs)
 6. [Risks and Limitations](#risks-and-limitations)
 7. [More Information](#more-information)
-
 
 ## Introduction
 As Boston University strives to become a more sustainable campus, we see a disconnect between the university’s Zero Waste goals and student understanding regarding what is recyclable and what is not.  The main reason for this disconnect is the lack of easily accessible resources to help students sort their waste accurately and confidently. Sustainability@BU has already incorporated the Recyclopedia Resource, which can be found on the Sustainability@BU website, into their list of resources available to students. This resource addresses that disconnect by allowing users to type in an item and telling them whether the item is recyclable or not, as well as what must be done to the item to prepare it for recycling like rinsing out a food container. 
@@ -102,7 +99,7 @@ To be more specific, make sure that the dianostic from **Flutter Doctor** are re
 
 ### Running Project Using VSCode
 
-1. Make sure the vscode extension for [Dart](vscode:extension/Dart-Code.dart-code) and [Flutter](/vscode:extension/Dart-Code.flutter) is installed. 
+1. Make sure the vscode extension for [Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code) and [Flutter](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter) is installed. 
 
 ![alt text](./readme_assets/install%20dart%20extension.png)
 ![alt text](./readme_assets/flutter%20extension.png)
@@ -131,7 +128,6 @@ To be more specific, make sure that the dianostic from **Flutter Doctor** are re
 4. Click on the top-right trangle to start.
 ![alt text](./readme_assets/Step%204.png)
 
-
 ## Known bugs
 1. On the navigation rail, quickly switching between the map section and other sections may cause a bug
 2. After selecting an trash item, there is a "find bin" button at the bottom of the screen. Clicking that button will redirect the user to the map page, but there is no backward button or navigation rail if the map page is reached in such a way, meaning the user is stuck on the map page.
@@ -144,7 +140,7 @@ This app should not be used to locate the user, it currently lacks the ability t
 This app is currently in beta, contents displayed are solely for testing purposes. Please regard with caution.
 
 ## More Information
-...
+More about his project, contact [BU sustainbility](https://www.bu.edu/sustainability/) or [BU Spark!](https://www.bu.edu/spark/)
 
 # Add Users
 To add yourself to the repository, open a Pull Request modifying `COLLABORATORS`, entering your GitHub username in a newline.
