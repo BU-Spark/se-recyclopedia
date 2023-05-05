@@ -128,6 +128,11 @@ To be more specific, make sure that the dianostic from **Flutter Doctor** are re
 ![alt text](./readme_assets/Step%204.png)
 
 
+## Known bugs
+1. On the navigation rail, quickly switching between the map section and other sections may cause a bug
+2. After selecting an trash item, there is a "find bin" button at the bottom of the screen. Clicking that button will redirect the user to the map page, but there is no backward button or navigation rail if the map page is reached in such a way, meaning the user is stuck on the map page.
+3. On the home page, for alphabetical categorizing the trash items. Sections will take at least two rows of space even if there are at most one row of contents to display, resulting in extra spaces between sections.
+
 ## Risks and Limitations
 This section identifies foreseeable harms and misunderstandings...
 
