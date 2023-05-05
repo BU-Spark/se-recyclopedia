@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:recyclopedia/global_configuration.dart';
 
 class ItemPreview extends Container {
   final Map item;
+  // final bool hasLabel;
 
   ItemPreview(this.item, {super.key});
 
@@ -10,7 +10,7 @@ class ItemPreview extends Container {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
@@ -27,14 +27,16 @@ class ItemPreview extends Container {
         children: [
           Container(
               child: Image.asset(
-            defaultItemModalImage,
-            // item["image"],
+            // defaultItemModalImage,
+            item["image"],
+            height: 200,
             fit: BoxFit.contain,
           )),
-          Text(
-            item["name"],
-            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-          )
+          // if(hasLabel)
+          // Text(
+          //   item["name"],
+          //   style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+          // )
         ],
       ),
     );
