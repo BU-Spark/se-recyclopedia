@@ -8,20 +8,14 @@ This app is aiming to addresses the issue of
 
  and provide solutions that promote better waste management practices in Boston University’s area.
 
-
-## Dataflow
-
-current dummy data inside [lib/global_configuration.dart](lib/global_configuration.dart)
-
-[lib/providers](lib/providers) get dummy data. they should get data from Strapi API
-
-components gets data from and listens to providers for data updates
-
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Risks and Limitations](#risks-and-limitations)
-3. [More Information](#more-information)
-7. [...](#?)
+2. [Technical Detail](#technical-detail)
+3. [Getting Started](#getting-started)
+4. [Run The Project](#run-the-project)
+5. [Known bugs](#known-bugs)
+6. [Risks and Limitations](#risks-and-limitations)
+7. [More Information](#more-information)
 
 ## Introduction
 As Boston University strives to become a more sustainable campus, we see a disconnect between the university’s Zero Waste goals and student understanding regarding what is recyclable and what is not.  The main reason for this disconnect is the lack of easily accessible resources to help students sort their waste accurately and confidently. Sustainability@BU has already incorporated the Recyclopedia Resource, which can be found on the Sustainability@BU website, into their list of resources available to students. This resource addresses that disconnect by allowing users to type in an item and telling them whether the item is recyclable or not, as well as what must be done to the item to prepare it for recycling like rinsing out a food container. 
@@ -36,6 +30,13 @@ samples, guidance on mobile development, and a full API reference.
 
 ### Flutter project folder
 [src/recyclopedia](src/recyclopedia)
+
+### Dataflow
+current dummy data inside [lib/global_configuration.dart](lib/global_configuration.dart)
+
+[lib/providers](lib/providers) get dummy data. they should get data from Strapi API
+
+components gets data from and listens to providers for data updates
 
 ## Getting Started
 
@@ -127,7 +128,6 @@ To be more specific, make sure that the dianostic from **Flutter Doctor** are re
 4. Click on the top-right trangle to start.
 ![alt text](./readme_assets/Step%204.png)
 
-
 ## Known bugs
 1. On the navigation rail, quickly switching between the map section and other sections may cause a bug
 2. After selecting an trash item, there is a "find bin" button at the bottom of the screen. Clicking that button will redirect the user to the map page, but there is no backward button or navigation rail if the map page is reached in such a way, meaning the user is stuck on the map page.
@@ -135,6 +135,7 @@ To be more specific, make sure that the dianostic from **Flutter Doctor** are re
 
 ## Risks and Limitations
 >This section identifies foreseeable harms and misunderstandings...
+
 This app should not be used to locate the user, it currently lacks the ability to access the location of the user while using the app.
 
 This app is currently in beta, contents displayed are solely for testing purposes. Please regard with caution.
