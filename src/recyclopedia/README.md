@@ -1,6 +1,8 @@
-# recyclopedia
+# Recyclopedia Details 
 
-This folder is the root folder of the Flutter project, recyclopedia.
+This file contains a detailed explaination of each of the components within this project. 
+
+This folder is the **root folder** of the Flutter project, recyclopedia.
 
 ## API docs
 [API documentation](https://raw.githack.com/BU-Spark/se-recyclopedia/dev/src/recyclopedia/doc/api/index.html)
@@ -107,3 +109,4 @@ assets
 ├── recyclepedia_logo.jpg
 └── warren.jpg
 ```
+
