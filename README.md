@@ -32,13 +32,13 @@ samples, guidance on mobile development, and a full API reference.
 ## Getting Started
 
 ### Environment Setup
-#### prerequisites
-install Flutter
+
+Flutter 3.7.3 [installation guide](https://docs.flutter.dev/get-started/install)
 ```
-cd src/
-1. 
-2. 
-3. 
+cd src/recyclopedia/
+flutter pub get
+flutter run
+```
 
 ### Important: To run this sample app, you will need an API key.
 
