@@ -22,8 +22,69 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 ## Technical Detail
+
 ### Flutter project folder
 [src/recyclopedia](src/recyclopedia)
+
+## Getting Started
+
+### Environment Setup
+
+1. 
+2. 
+3. 
+
+### Important: To run this sample app, you will need an API key.
+
+Get an API key at <https://cloud.google.com/maps-platform/>.
+
+#### Android
+Specify your API key in the application manifest
+`android/app/src/main/AndroidManifest.xml`:
+
+```xml
+<manifest ...
+  <application ...
+    <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="YOUR KEY HERE"/>
+```
+
+#### iOS
+Specify your API key in `AppDelegate.swift`:
+
+```swift
+@UIApplicationMain
+@objc class AppDelegate: FlutterAppDelegate {
+  override func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
+    GMSServices.provideAPIKey("YOUR API KEY HERE")
+    GeneratedPluginRegistrant.register(with: self)
+    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+  }
+}
+```
+
+#### Web
+Add your API key to `web/index.html` in the `<head>` tag:
+
+```
+<script src="https://maps.googleapis.com/maps/api/js?key=<YOUR_API_KEY_HERE>"></script>
+```
+
+For additional help setting up the plugin, see the plugin's
+[README](https://pub.dev/packages/google_maps_flutter)
+page.
+
+### Running Project In Differnet IDE
+
+#### Running Project Using VSCode
+
+#### Running Project Using Android Studio
+
+
+
 ## Risks and Limitations
 This section identifies foreseeable harms and misunderstandings...
 
