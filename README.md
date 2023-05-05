@@ -95,15 +95,19 @@ To be more specific, make sure that the dianostic from **Flutter Doctor** are re
 
 ### Running Project Using VSCode
 
-1. Direct to the root directory (if you have not already done so) of the project by running  
+1. Make sure the vscode extension for (Dart)[vscode:extension/Dart-Code.dart-code] and (Flutter)[vscode:extension/Dart-Code.flutter] is installed. 
+
+![alt text](./readme_assets/install%20dart%20extension.png)
+![alt text](./readme_assets/flutter%20extension.png)
+
+2. Direct to the root directory (if you have not already done so) of the project by running  
 `cd src/recyclopedia`
 
-2. Select your environment to run. e.g. If you want to use Android phone to run the project, select an Android phone enmulator. 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+3. Select your environment to run. e.g. If you want to use Android phone to run the project, select an Android phone enmulator. 
 
-3. Click on the top-right trangle to start.
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+4. Click on the top-right trangle to start.
 
+![alt text](./readme_assets/vscode.png)
 
 ### Running Project Using Android Studio
 
@@ -111,14 +115,14 @@ To be more specific, make sure that the dianostic from **Flutter Doctor** are re
 `cd src/recyclopedia`
 
 2. Add configeration if you haven't done so.
-![alt text](./readme_assets/Step%201.jpg)
+![alt text](./readme_assets/Step%201.png)
 ![alt text](./readme_assets/Step%202.jpg)
 
 3. Select your environment to run. e.g. If you want to use Android phone to run the project, select an Android phone enmulator. 
 ![alt text](./readme_assets/Step%203.jpg)
 
 4. Click on the top-right trangle to start.
-![alt text](./readme_assets/Step%204.jpg)
+![alt text](./readme_assets/Step%204.png)
 
 
 ## Risks and Limitations
