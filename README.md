@@ -140,7 +140,7 @@ This app should not be used to locate the user, it currently lacks the ability t
 This app is currently in beta, contents displayed are solely for testing purposes. Please regard with caution.
 
 ## More Information
-...
+More about his project, contact [BU sustainbility](https://www.bu.edu/sustainability/) or [BU Spark!](https://www.bu.edu/spark/)
 
 # Add Users
 To add yourself to the repository, open a Pull Request modifying `COLLABORATORS`, entering your GitHub username in a newline.
