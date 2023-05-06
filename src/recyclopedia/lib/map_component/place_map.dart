@@ -1,6 +1,5 @@
-// Copyright 2020 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+/// This file contains the information needed to render 
+/// the google map in our map component.
 
 import 'dart:async';
 import 'dart:math';
@@ -14,6 +13,7 @@ import 'package:provider/provider.dart';
 import 'recycle_resource_place.dart';
 import 'recycle_map_component.dart';
 
+/// Keep track of the places and categories needed to disolay the map.
 class MapConfiguration {
   final List<RecycleResourcePlace> places;
 
@@ -50,6 +50,7 @@ class MapConfiguration {
   }
 }
 
+/// Renders the map component, including markers and features
 class PlaceMap extends StatefulWidget {
   final LatLng? center;
 
@@ -78,7 +79,7 @@ class _PlaceMapState extends State<PlaceMap> {
   MapConfiguration? _configuration;
 
 
-
+// the commented section below would cause an error where it would not allow us to switch categories.
 /////////////////////////
   // @override
   // void initState() {
@@ -175,7 +176,7 @@ class _PlaceMapState extends State<PlaceMap> {
         ),
       );
   }
-
+	/// Create a map with details on it for rendering
   Future<void> onMapCreated(GoogleMapController controller) async {
     mapController.complete(controller);
     _lastMapPosition = widget.center;
@@ -212,7 +213,7 @@ class _PlaceMapState extends State<PlaceMap> {
       ),
     );
   }
-
+	/// Create a marker on the map when called.
   Future<Marker> _createPlaceMarker(BuildContext context, RecycleResourcePlace place) async {
     final marker = Marker(
       markerId: MarkerId(place.latLng.toString()),
@@ -230,6 +231,7 @@ class _PlaceMapState extends State<PlaceMap> {
     return marker;
   }
 
+	/// Switch the view type of the map.
   void _onToggleMapTypePressed() {
     final nextType =
     MapType.values[(_currentMapType.index + 1) % MapType.values.length];
@@ -239,6 +241,7 @@ class _PlaceMapState extends State<PlaceMap> {
     });
   }
 
+	/// Show the correct markers for the selected category.
   Future<void> _showPlacesForSelectedCategory(PlaceCategory category) async {
     setState(() {
       for (var marker in List.of(_markedPlaces.keys)) {
@@ -260,7 +263,8 @@ class _PlaceMapState extends State<PlaceMap> {
       _markedPlaces.values.toList(),
     ));
   }
-
+	
+	/// Switch the category displayed
   Future<void> _switchSelectedCategory(PlaceCategory category) async {
     Provider.of<MapState>(context, listen: false).setSelectedCategory(category);
     await _showPlacesForSelectedCategory(category);
@@ -277,7 +281,8 @@ class _PlaceMapState extends State<PlaceMap> {
     _markers.add(updatedMarker);
     _markedPlaces[updatedMarker] = place;
   }
-
+	
+	/// Zoom to fit places after the map has been created.
   Future<void> _zoomToFitPlaces(List<RecycleResourcePlace> places) async {
     var controller = await mapController.future;
 
@@ -307,6 +312,7 @@ class _PlaceMapState extends State<PlaceMap> {
     });
   }
 
+	/// Get marker icons from asset folder
   static Future<BitmapDescriptor> _getPlaceMarkerIcon(
       BuildContext context, PlaceCategory category) async {
     var marker = BitmapDescriptor.fromAssetImage(
@@ -325,12 +331,14 @@ class _PlaceMapState extends State<PlaceMap> {
     }
   }
 
+	/// Get the selected Category.
   static List<RecycleResourcePlace> _getPlacesForCategory(
       PlaceCategory category, List<RecycleResourcePlace> places) {
     return places.where((place) => place.category == category).toList();
   }
 }
 
+/// Renders the component for selecting category.
 class _CategoryButtonBar extends StatelessWidget {
   final PlaceCategory selectedPlaceCategory;
   final bool visible;
@@ -383,6 +391,7 @@ class _CategoryButtonBar extends StatelessWidget {
   }
 }
 
+/// Responsible for the functionality on the map.
 class _MapFabs extends StatelessWidget {
   final bool visible;
   final VoidCallback onToggleMapTypePressed;
