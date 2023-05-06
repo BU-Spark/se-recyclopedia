@@ -67,6 +67,7 @@ Specify your API key in the application manifest
 ```
 
 #### iOS
+Add `import GoogleMaps` on the top in `AppDelegate.swift`;   
 Specify your API key in `AppDelegate.swift`:
 
 ```swift
