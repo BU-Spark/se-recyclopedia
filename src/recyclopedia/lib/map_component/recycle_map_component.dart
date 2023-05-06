@@ -1,5 +1,7 @@
-// this file contains everything needed to render the map component
-
+/// The recycle_map_component.dart file is the main container of the map component, 
+/// it is responsible for the main layout and initiate the `MapState` class.
+/// The `MapState` class is the most important part in this file, it allows the 
+/// whole project to listen to the change within MapState then make modifications to the outcome 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -62,6 +64,8 @@ class RecycleMapComponent extends StatelessWidget {
 }
 
 class _PlaceTrackerHomePage extends StatelessWidget {
+  /// This stateless widget renders the place tracker's root directory, which 
+  /// would display the map component by default
   const _PlaceTrackerHomePage();
 
   @override
@@ -76,8 +80,6 @@ class _PlaceTrackerHomePage extends StatelessWidget {
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text('Recycling Bin Locations',
                     style: GoogleFonts.poppins(fontSize: 27.0)),
-                // Text('your campus recycling tool',
-                //     style: GoogleFonts.poppins(fontSize: 15.0)),
               ]),
             ]),
             const SizedBox(height: 20),
@@ -137,6 +139,8 @@ class MapState extends ChangeNotifier {
   late PlaceTrackerViewType viewType;
 
   MapState() {
+    /// We initiate MapState with the fromJson method because it give protential
+    /// upgrade functionality if admin want to change what people could see from the page
     places = StubData.defaultPlaces
         .map((e) => RecycleResourcePlace.fromJson(e))
         .toList();

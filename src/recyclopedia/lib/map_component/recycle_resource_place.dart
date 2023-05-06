@@ -1,4 +1,4 @@
-// This file contains the information about class recycle_resource_place
+/// This file contains the information about class recycle_resource_place
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -9,6 +9,7 @@ part 'recycle_resource_place.g.dart';
 // @ https://pub.dev/packages/json_serializable
 @JsonSerializable()
 class RecycleResourcePlace {
+  /// State the type needed to display the contents in the map component
   final String id;
 
   final LatLngJson latLng;
@@ -120,7 +121,7 @@ class RecycleResourcePlace {
 // https://pub.dev/packages/json_serializable#enums
 @JsonEnum()
 enum PlaceCategory {
-  // Shows the category of the marker on the map, could be one of the several kinds
+  /// Shows the category of the marker on the map, could be one of the several kinds
   // TODO: need to discuss with client for how many kinds of resources there are -> change color or marker on map accordingly
   // recycleTrashBin,
   // recycleBox,
