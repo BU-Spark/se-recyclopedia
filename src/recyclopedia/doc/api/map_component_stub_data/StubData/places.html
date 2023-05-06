@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the places property from the StubData class, for the Dart programming language.">
+  <title>places property - StubData class - stub_data library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">recyclopedia</a></li>
+    <li><a href="../../map_component_stub_data/map_component_stub_data-library.html">stub_data</a></li>
+    <li><a href="../../map_component_stub_data/StubData-class.html">StubData</a></li>
+    <li class="self-crumb">places property</li>
+  </ol>
+  <div class="self-name">places</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span class="material-symbols-outlined">
+        brightness_4
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-property">places</span> property 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+        <section class="multi-line-signature">
+          
+          <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../map_component_recycle_resource_place/RecycleResourcePlace-class.html">RecycleResourcePlace</a></span>&gt;</span>
+          <span class="name ">places</span>
+          <div class="features"><span class="feature">read / write</span></div>
+
+        </section>
+        
+
+        
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">static List&lt;RecycleResourcePlace&gt; places = [
+  RecycleResourcePlace(
+    id: &#39;1&#39;,
+    latLng: const LatLng(42.3508, -71.1089), &#47;&#47;42.3509° N, 71.1089° W
+    name: &#39;GSU Recycle Bin&#39;,
+    building: &quot;George Sherman Union&quot;,
+    address: &quot;775 Commonwealth Ave, Boston, MA 02215&quot;,
+    description: &#39;Recycle bin located at the first floor of GSU&#39;,
+    category: PlaceCategory.binAvailable,
+    directions: [&#39;&lt;direction to find bin&gt;&#39;],
+    bins: [&quot;first floor&quot;, &quot;second floor&quot;],
+    image: &quot;.&#47;asset&#47;gsu.jpg&quot;,
+  ),
+  RecycleResourcePlace(
+    id: &#39;2&#39;,
+    latLng: const LatLng(42.3495, -71.1048), &#47;&#47; 42.3495° N, 71.1048° W
+    name: &#39;Warren Towers Recycle Box&#39;,
+    building: &quot;George Sherman Union&quot;,
+    address: &quot;700 Commonwealth Ave, Boston, MA 02215&quot;,
+    description: &quot;Bins At WarrenTowers, tap to find more information&quot;,
+    category: PlaceCategory.binAvailable,
+    directions: [&#39;&lt;direction to find bin&gt;&#39;],
+    bins: [&quot;first floor&quot;, &quot;second floor&quot;],
+    image: &quot;.&#47;asset&#47;gsu.jpg&quot;,
+  ),
+  RecycleResourcePlace(
+    id: &#39;3&#39;,
+    latLng: const LatLng(42.3503, -71.1054), &#47;&#47; 42.3503° N, 71.1054° W
+    name: &#39;CAS Recycle Bin&#39;,
+    building: &quot;College of Art&amp;Sciences&quot;,
+    address: &quot;725 Commonwealth Ave, Boston, MA 02215&quot;,
+    description: &#39;Recycle bin located at the first floor of CAS&#39;,
+    category: PlaceCategory.binUnavailable,
+    directions: [&#39;&lt;direction to find bin&gt;&#39;],
+    bins: [&quot;first floor&quot;, &quot;second floor&quot;],
+    image: &quot;.&#47;asset&#47;gsu.jpg&quot;,
+  ),
+  RecycleResourcePlace(
+    id: &#39;4&#39;,
+    latLng: const LatLng(42.3511, -71.1089), &#47;&#47;42.3509° N, 71.1089° W
+    name: &#39;GSU Recycle Center (imaginary)&#39;,
+    building: &quot;George Sherman Union&quot;,
+    address: &quot;775 Commonwealth Ave, Boston, MA 02215&quot;,
+    description: &#39;Recycle center underground of GSU&#39;,
+    category: PlaceCategory.binUnavailable,
+    directions: [&#39;&lt;direction to find bin&gt;&#39;],
+    bins: [&quot;first floor&quot;, &quot;second floor&quot;],
+    image: &quot;.&#47;asset&#47;gsu.jpg&quot;,
+  ),
+];</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">recyclopedia</a></li>
+  <li><a href="../../map_component_stub_data/map_component_stub_data-library.html">stub_data</a></li>
+  <li><a href="../../map_component_stub_data/StubData-class.html">StubData</a></li>
+  <li class="self-crumb">places property</li>
+</ol>
+
+
+    <h5>StubData class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../map_component_stub_data/StubData-class.html#constructors">Constructors</a></li>
+          <li><a href="../../map_component_stub_data/StubData/StubData.html">StubData</a></li>
+
+
+        <li class="section-title inherited">
+          <a href="../../map_component_stub_data/StubData-class.html#instance-properties">Properties</a>
+        </li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+        <li class="section-title inherited"><a href="../../map_component_stub_data/StubData-class.html#instance-methods">Methods</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+        <li class="section-title inherited"><a href="../../map_component_stub_data/StubData-class.html#operators">Operators</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+        <li class="section-title"><a href="../../map_component_stub_data/StubData-class.html#static-properties">Static properties</a></li>
+          <li><a href="../../map_component_stub_data/StubData/defaultCategory.html">defaultCategory</a></li>
+          <li><a href="../../map_component_stub_data/StubData/defaultPlaces.html">defaultPlaces</a></li>
+          <li><a href="../../map_component_stub_data/StubData/defaultTrackerViewType.html">defaultTrackerViewType</a></li>
+          <li><a href="../../map_component_stub_data/StubData/places.html">places</a></li>
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    recyclopedia
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+
