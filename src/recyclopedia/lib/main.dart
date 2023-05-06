@@ -12,6 +12,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  ///MyApp is the root of widgets tree
+  ///Using multiProvider to link to other widgets
   const MyApp({super.key});
 
   @override
