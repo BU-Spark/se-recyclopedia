@@ -9,6 +9,7 @@ import 'package:recyclopedia/map_component/recycle_resource_place.dart';
 import 'package:recyclopedia/map_component/recycle_map_component.dart';
 import 'stub_data.dart';
 
+/// This widget is responsible to render the details of a selected place.
 class PlaceDetails extends StatefulWidget {
   final RecycleResourcePlace place;
 
@@ -21,6 +22,7 @@ class PlaceDetails extends StatefulWidget {
   State<PlaceDetails> createState() => _PlaceDetailsState();
 }
 
+/// Take track of the state of which detail is selected.
 class _PlaceDetailsState extends State<PlaceDetails> {
   late RecycleResourcePlace _place;
   int selectedBin = 0;
@@ -131,7 +133,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
 
 }
 
-// TODO:implement the thing here to help jump
+// TODO:implement the thing here to help jump using _Map
 class nearestBin_Map extends StatelessWidget{
 
   GoogleMapController? _mapController;
@@ -156,16 +158,17 @@ class nearestBin_Map extends StatelessWidget{
 
   void _onMapCreated(GoogleMapController controller) {
     _mapController = controller;
-    setState(() {
-      _markers.add(Marker(
-        markerId: MarkerId(_place.latLng.toString()),
-        position: _place.latLng,
-      ));
-    });
+//    setState(() {
+//      _markers.add(Marker(
+//        markerId: MarkerId(_place.latLng.toString()),
+//        position: _place.latLng,
+//      ));
+//    });
   }
 
 }
 
+/// This map is independent from the big map, used as a child of other components, only displaying marker on the map for 1 place.
 class _Map extends StatelessWidget {
   final LatLng center;
 
