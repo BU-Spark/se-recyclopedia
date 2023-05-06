@@ -158,12 +158,12 @@ class nearestBin_Map extends StatelessWidget{
 
   void _onMapCreated(GoogleMapController controller) {
     _mapController = controller;
-//    setState(() {
-//      _markers.add(Marker(
-//        markerId: MarkerId(_place.latLng.toString()),
-//        position: _place.latLng,
-//      ));
-//    });
+      setState(() {
+      _markers.add(Marker(
+        markerId: MarkerId(_place.latLng.toString()),
+        position: _place.latLng,
+      ));
+    });
   }
 
 }
