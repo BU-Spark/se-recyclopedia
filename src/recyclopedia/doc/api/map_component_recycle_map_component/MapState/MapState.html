@@ -66,6 +66,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">MapState() {
+  &#47;&#47;&#47; We initiate MapState with the fromJson method because it give protential
+  &#47;&#47;&#47; upgrade functionality if admin want to change what people could see from the page
   places = StubData.defaultPlaces
       .map((e) =&gt; RecycleResourcePlace.fromJson(e))
       .toList();
