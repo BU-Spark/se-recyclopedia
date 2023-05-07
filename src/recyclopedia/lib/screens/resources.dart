@@ -26,6 +26,7 @@ Future<List<Resource>> getAll() async {
   return hold;
 }
 
+/// This widget is responsible for rendering the resources page.
 class ResourcesPage extends StatelessWidget {
   ///store getAll() in a Future, and use a FutureBuilder() to render the data once it arrives
   late final Future<List<Resource>> resources = getAll();
@@ -45,7 +46,9 @@ class ResourcesPage extends StatelessWidget {
           ],
         ),
         toolbarHeight: 210,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+        ),
       ),
       body: SafeArea(
         child: Column(

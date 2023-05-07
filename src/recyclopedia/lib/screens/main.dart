@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:recyclopedia/map_component/all.dart';
 import 'package:recyclopedia/screens/all.dart';
+import 'package:recyclopedia/screens/campus_map.dart';
 
+/// MainPage hosts all components of the app, including a home page, a map page, and a resources page.
 class MainPage extends StatefulWidget {
   @override
   State<MainPage> createState() => _MainPageState();
@@ -17,10 +20,8 @@ class _MainPageState extends State<MainPage> {
         page = Home();
         break;
       case 1:
-        page = ItemModal("paper", "", [
-          "paper bags are recycleable. They belong in the green bins...",
-          "fold into airplane"
-        ]);
+        page = RecycleMapComponent();
+        // page = CampusMap();
         break;
       case 2:
         page = ResourcesPage();

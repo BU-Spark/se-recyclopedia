@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:recyclopedia/global_configuration.dart';
+import 'package:provider/provider.dart';
+import 'package:recyclopedia/providers/assets_provider.dart';
+import 'package:recyclopedia/providers/category_provider.dart';
 
 class AppHeader extends StatelessWidget {
   const AppHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var categoryProvider = context.watch<CategoryProvider>();
+    var assetsProvider = context.watch<AssetsProvider>();
+    var appLogo = assetsProvider.appLogo;
     return AppBar(
       title: Column(
         children: [
@@ -23,6 +28,7 @@ class AppHeader extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(20.0),
             child: TextField(
+              onChanged: (value) => categoryProvider.search(value),
               decoration: InputDecoration(
                   filled: true,
                   border: OutlineInputBorder(),
@@ -33,7 +39,9 @@ class AppHeader extends StatelessWidget {
           ),
         ],
       ),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+        ),
       backgroundColor: Color(0XFF2F935C),
       toolbarHeight: 210,
     );
