@@ -32,6 +32,7 @@ dev_dependencies:
   json_serializable: ^6.6.0
   flutter_test:
     sdk: flutter
+  test: ^1.22.0
 
   flutter_lints: ^2.0.0
 

@@ -1,9 +1,37 @@
+import 'dart:convert';
+import 'dart:async';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:recyclopedia/widgets/news_card.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:http/http.dart' as http;
+import 'package:recyclopedia/widgets/ResourceClass.dart';
 
+///Pull data from Strapi as list of Resource objects, store in hold.
+///This is done as getAll() returns a future, and futures are not iterable.
+Future<List<Resource>> getAll() async {
+  List<Resource> hold = [];
+  var data = await http.get(Uri.parse(
+      "https://strapi-development-6fb1.up.railway.app/api/resources"));
+  var jsonData = json.decode(data.body);
+
+  final resources = jsonData['data'];
+  for (var item in resources) {
+    ;
+    final attributes = item['attributes'];
+    final format = Resource.fromJson(attributes);
+    hold.add(format);
+  }
+  return hold;
+}
+
+/// This widget is responsible for rendering the resources page.
 class ResourcesPage extends StatelessWidget {
+  ///store getAll() in a Future, and use a FutureBuilder() to render the data once it arrives
+  late final Future<List<Resource>> resources = getAll();
+
+  ///For every item pulled from Strapi, render a NewsCard().
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,65 +56,33 @@ class ResourcesPage extends StatelessWidget {
             children: <Widget>[
               Expanded(
                   child: SingleChildScrollView(
-                child: Column(children: <Widget>[
-                  GestureDetector(
-                    onTap: () {
-                      const url = 'https://www.bu.edu/sustainability/about/';
-                      final uri = Uri.parse(url);
-                      launchUrl(uri);
-                    },
-                    child: NewsCard(
-                      imgUrl: 'assets/images/testimage.jpg',
-                      desc:
-                          "Learn more about BUs green initiatives and environmental impact",
-                      title: "BU Sustainability",
-                      postUrl: "google.com",
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      const url =
-                          'https://www.bu.edu/sustainability/take-action/';
-                      final uri = Uri.parse(url);
-                      launchUrl(uri);
-                    },
-                    child: NewsCard(
-                      imgUrl: 'assets/images/testimage2.jpg',
-                      desc: "Learn about BU's plan of action and get involved",
-                      title: "Take Action",
-                      postUrl: "google.com",
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      const url =
-                          'https://www.bu.edu/sustainability/vision-progress/programs-projects/';
-                      final uri = Uri.parse(url);
-                      launchUrl(uri);
-                    },
-                    child: NewsCard(
-                      imgUrl: 'assets/images/testimage3.jpg',
-                      desc: "View the active programs by BU Sustainability",
-                      title: "Programs and Project",
-                      postUrl: "google.com",
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      const url =
-                          'https://www.bu.edu/sustainability/2022/09/19/2022-sustainable-campus-index/';
-                      final uri = Uri.parse(url);
-                      launchUrl(uri);
-                    },
-                    child: NewsCard(
-                      imgUrl: 'assets/images/testimage4.jpg',
-                      desc: "View BU's 2022 Sustainable Campus Index",
-                      title: "Our Work so Far",
-                      postUrl: "google.com",
-                    ),
-                  )
-                ]),
-              ))
+                      child: FutureBuilder(
+                          future: getAll(),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              int count = 0;
+                              for (var item in snapshot.data!) {
+                                count++;
+                              }
+                              return ListView.builder(
+                                  itemCount: count,
+                                  scrollDirection: Axis.vertical,
+                                  shrinkWrap: true,
+                                  itemBuilder: (context, index) {
+                                    return NewsCard(
+                                      imgUrl: snapshot.data![index].imagePath,
+                                      desc: snapshot.data![index].description,
+                                      title: snapshot.data![index].title,
+                                      postUrl: snapshot.data![index].link,
+                                    );
+                                  });
+                            }
+                            return Container(
+                              child: const Center(
+                                child: Text("Check Later For More"),
+                              ),
+                            );
+                          })))
             ]),
       ),
     ));

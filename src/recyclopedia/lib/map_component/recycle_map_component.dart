@@ -24,6 +24,11 @@ enum PlaceTrackerViewType {
   String toJson() => name;
 }
 
+/// The RecycleMapComponent is the main container of the map component, 
+/// it is responsible for the main layout and initiate the `MapState` class.
+/// 
+/// The `MapState` class is the most important part in this file, it allows the 
+/// whole project to listen to the change within MapState then make modifications to the outcome 
 class RecycleMapComponent extends StatelessWidget {
   const RecycleMapComponent({super.key});
 
@@ -66,6 +71,8 @@ class RecycleMapComponent extends StatelessWidget {
 }
 
 class _PlaceTrackerHomePage extends StatelessWidget {
+  /// This stateless widget renders the place tracker's root directory, which 
+  /// would display the map component by default
   const _PlaceTrackerHomePage();
 
   @override
@@ -80,8 +87,6 @@ class _PlaceTrackerHomePage extends StatelessWidget {
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text('Recycling Bin Locations',
                     style: GoogleFonts.poppins(fontSize: 27.0)),
-                // Text('your campus recycling tool',
-                //     style: GoogleFonts.poppins(fontSize: 15.0)),
               ]),
             ]),
             const SizedBox(height: 20),

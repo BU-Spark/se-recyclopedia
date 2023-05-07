@@ -5,13 +5,14 @@ import 'package:recyclopedia/all.dart';
 import 'package:recyclopedia/providers/assets_provider.dart';
 import 'package:recyclopedia/providers/category_provider.dart';
 import 'package:recyclopedia/providers/location_provider.dart';
-import 'package:recyclopedia/providers/location_provider.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  ///MyApp is the root of widgets tree
+  ///Using multiProvider to link to other widgets
   const MyApp({super.key});
 
   @override

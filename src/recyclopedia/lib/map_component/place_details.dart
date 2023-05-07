@@ -1,7 +1,3 @@
-// Copyright 2020 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,6 +9,7 @@ import 'package:recyclopedia/map_component/recycle_resource_place.dart';
 import 'package:recyclopedia/map_component/recycle_map_component.dart';
 import 'stub_data.dart';
 
+/// This widget is responsible to render the details of a selected place.
 class PlaceDetails extends StatefulWidget {
   final RecycleResourcePlace place;
 
@@ -25,6 +22,7 @@ class PlaceDetails extends StatefulWidget {
   State<PlaceDetails> createState() => _PlaceDetailsState();
 }
 
+/// Take track of the state of which detail is selected.
 class _PlaceDetailsState extends State<PlaceDetails> {
   late RecycleResourcePlace _place;
   int selectedBin = 0;
@@ -36,30 +34,6 @@ class _PlaceDetailsState extends State<PlaceDetails> {
 
   @override
   Widget build(BuildContext context) {
-    // return Scaffold(
-    //   appBar: AppBar(
-    //     title: Text(_place.name),
-    //     backgroundColor: Colors.green[700],
-    //     actions: [
-    //       Padding(
-    //         padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
-    //         child: IconButton(
-    //           icon: const Icon(Icons.save, size: 30.0),
-    //           onPressed: () {
-    //             _onChanged(_place);
-    //             Navigator.pop(context);
-    //           },
-    //         ),
-    //       ),
-    //     ],
-    //   ),
-    //   body: GestureDetector(
-    //     onTap: () {
-    //       FocusScope.of(context).requestFocus(FocusNode());
-    //     },
-    //     child: _detailsBody(),
-    //   ),
-    // );
     return Scaffold(
         appBar: AppBar(
           title: Text(_place.name),
@@ -100,7 +74,6 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                       child: GestureDetector(
                           onTap: () {
                             setState(() {
-                              // selectedBin = _place.bins[index];
                               selectedBin = index;
                             });
                           },
@@ -111,9 +84,6 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                               ),
                             ),
                             child: 
-                            // ListTile(
-                            //   // trailing: Icon(CupertinoIcons.trash),
-                            //   title: 
                               Row(
                                 children: [
                                   Text(
@@ -126,7 +96,6 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                                   Icon(CupertinoIcons.trash, color: Colors.green[700])
                                 ],
                               ),
-                            // ),
                           )),
                     );
                   },
@@ -161,27 +130,44 @@ class _PlaceDetailsState extends State<PlaceDetails> {
     return super.initState();
   }
 
-  void _onMapCreated(GoogleMapController controller) {
-    _mapController = controller;
-    setState(() {
-      _markers.add(Marker(
-        markerId: MarkerId(_place.latLng.toString()),
-        position: _place.latLng,
-      ));
-    });
-  }
 
-  void _onChanged(RecycleResourcePlace value) {
-    // Replace the place with the modified version.
-    final newPlaces = List<RecycleResourcePlace>.from(context.read<MapState>().places);
-    final index = newPlaces.indexWhere((place) => place.id == value.id);
-    newPlaces[index] = value;
-
-    context.read<MapState>().setPlaces(newPlaces);
-  }
 }
 
+// TODO:implement the thing here to help jump using _Map
+// class nearestBin_Map extends StatelessWidget{
 
+//   GoogleMapController? _mapController;
+//   late RecycleResourcePlace _place;
+//   final Set<Marker> _markers = {};
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView(
+//       padding: const EdgeInsets.fromLTRB(24.0, 12.0, 24.0, 12.0),
+//       children: [
+//         _Map(
+//           center: _place.latLng,
+//           mapController: _mapController,
+//           onMapCreated: _onMapCreated,
+//           markers: _markers,
+//         ),
+//       ],
+//     );
+    
+//   }
+
+//   void _onMapCreated(GoogleMapController controller) {
+//     _mapController = controller;
+//       setState(() {
+//       _markers.add(Marker(
+//         markerId: MarkerId(_place.latLng.toString()),
+//         position: _place.latLng,
+//       ));
+//     });
+//   }
+
+// }
+
+/// This map is independent from the big map, used as a child of other components, only displaying marker on the map for 1 place.
 class _Map extends StatelessWidget {
   final LatLng center;
 

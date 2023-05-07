@@ -1,6 +1,4 @@
-// This file contains dummy data just for display, it will further handle
-// getting data from target API
-
+/// This file contains dummy data for display and testing only
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 // import 'package:recyclepidia/map_component/recycle_resource_place.dart';
 import 'recycle_resource_place.dart';

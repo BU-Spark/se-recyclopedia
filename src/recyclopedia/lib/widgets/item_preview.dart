@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-/// Displays a preview of an item
+
+/// Displays a preview of an item, used in item_modal.
+
 class ItemPreview extends Container {
   final Map item;
   // final bool hasLabel;

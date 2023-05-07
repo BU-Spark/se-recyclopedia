@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recyclopedia/global_configuration.dart';
 
+/// Provider of categories for trash items.
 class CategoryProvider extends ChangeNotifier {
   String title = "Popular Category";
   late List allCategories;

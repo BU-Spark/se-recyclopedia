@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:recyclopedia/providers/assets_provider.dart';
 import 'package:recyclopedia/providers/category_provider.dart';
 
+/// The AppHeader holds a general header style of the app, 
+/// Map component and resource component have their own header style built in their widgets.
 class AppHeader extends StatelessWidget {
   const AppHeader({super.key});
 

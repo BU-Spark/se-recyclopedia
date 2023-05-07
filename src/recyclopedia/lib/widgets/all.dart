@@ -1,3 +1,5 @@
+/// Gather all files for screens, only have to import this file for all widgets to work.
+
 export 'package:recyclopedia/widgets/big_card.dart';
 export 'package:recyclopedia/widgets/clickable_trash_category.dart';
 export 'package:recyclopedia/widgets/heading1.dart';

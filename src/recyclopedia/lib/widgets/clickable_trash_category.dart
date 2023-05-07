@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recyclopedia/utils/navigate_to_item_modal.dart';
 
+/// The ClickableTrashItem widget holds the style of the items in the homescreen.
 class ClickableTrashItem extends StatelessWidget {
   final Map item;
 

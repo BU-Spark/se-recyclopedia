@@ -1,6 +1,8 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
+/// The BigCard widget holds the style of the items in the homescreen.
+@Deprecated("now use clickable_trush_category.dart for the same purpose")
 class BigCard extends StatelessWidget {
   const BigCard({
     Key? key,
