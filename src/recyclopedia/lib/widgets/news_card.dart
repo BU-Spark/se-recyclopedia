@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NewsCard extends StatelessWidget {
-  //final Image imgUrl;
+  ///Four items needed, local url for image file, title of NewsCard, description of the resource, and an external URL to open.
   final String imgUrl, title, desc, postUrl;
 
   const NewsCard({
@@ -15,6 +15,7 @@ class NewsCard extends StatelessWidget {
     required this.postUrl,
   });
 
+  ///Build NewsCard() with a GestureDetector() to allow for access to external links.
   @override
   Widget build(BuildContext context) {
     return Card(
