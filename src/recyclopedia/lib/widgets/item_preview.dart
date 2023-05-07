@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Displays a preview of an item
 class ItemPreview extends Container {
   final Map item;
   // final bool hasLabel;
@@ -26,12 +27,12 @@ class ItemPreview extends Container {
       child: Column(
         children: [
           Container(
-              child: Image.asset(
-            // defaultItemModalImage,
-            item["image"],
-            height: 200,
-            fit: BoxFit.contain,
-          )),
+            child: Image.network(
+              item["image"],
+              height: 200,
+              fit: BoxFit.contain,
+            ),
+          ),
           // if(hasLabel)
           // Text(
           //   item["name"],
