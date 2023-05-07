@@ -1,8 +1,14 @@
+// this file contains everything needed to render the map component
+
+import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:collection';
 
 import 'place_list.dart';
 import 'place_map.dart';
@@ -140,13 +146,13 @@ class MapState extends ChangeNotifier {
   late PlaceTrackerViewType viewType;
 
   MapState() {
-    /// We initiate MapState with the fromJson method because it give protential
-    /// upgrade functionality if admin want to change what people could see from the page
-    places = StubData.defaultPlaces
-        .map((e) => RecycleResourcePlace.fromJson(e))
-        .toList();
+    fetchPlaces();
     selectedCategory = PlaceCategory.fromJson(StubData.defaultCategory);
     viewType = PlaceTrackerViewType.fromJson(StubData.defaultTrackerViewType);
+  }
+
+  void fetchPlaces() async {
+    places = await fetchLocation();
   }
 
   void setViewType(PlaceTrackerViewType viewType) {
@@ -162,6 +168,111 @@ class MapState extends ChangeNotifier {
   void setPlaces(List<RecycleResourcePlace> newPlaces) {
     places = newPlaces;
     notifyListeners();
+  }
+
+  /// Get the list of locations
+  Future<List<RecycleResourcePlace>> fetchLocation() async {
+    // Sample json data
+    // final dynamic locations = {
+    //   "data": [
+    //     {
+    //       "id": 1,
+    //       "attributes": {
+    //         "locationID": "1",
+    //         "areaNameL": "George Sherman Union",
+    //         "areaAddress": "775 Commonwealth Ave",
+    //         "areaImage": "/gsu.jpg",
+    //         "areaDescription": "Bins At GSU, tap to find more information",
+    //         "areaCategory": "binAvailable",
+    //         "binList": "[\"first floor \", \"second floor\"]",
+    //         "areaNameS": "GSU",
+    //         "latitude": 42.3508,
+    //         "longitude": -71.1089,
+    //         "createdAt": "2023-05-06T01:51:42.305Z",
+    //         "updatedAt": "2023-05-06T01:51:45.339Z",
+    //         "publishedAt": "2023-05-06T01:51:45.333Z"
+    //       }
+    //     }
+    //   ],
+    //   "meta": {
+    //     "pagination": {"page": 1, "pageSize": 25, "pageCount": 1, "total": 1}
+    //   }
+    // };
+
+    // final dynamic locationbins = {
+    //   "data": [
+    //     {
+    //       "id": 1,
+    //       "attributes": {
+    //         "address": "first floor",
+    //         "instruction": "Go to school. Go to stairs.",
+    //         "name": "bin1",
+    //         "binID": "gsu1",
+    //         "locationID": "1",
+    //         "createdAt": "2023-05-06T05:15:30.980Z",
+    //         "updatedAt": "2023-05-06T05:15:52.614Z",
+    //         "publishedAt": "2023-05-06T05:15:52.611Z"
+    //       }
+    //     },
+    //     {
+    //       "id": 2,
+    //       "attributes": {
+    //         "address": "first floor",
+    //         "instruction": "another bin.",
+    //         "name": "bin2",
+    //         "binID": "gsu2",
+    //         "locationID": "1",
+    //         "createdAt": "2023-05-06T05:16:22.865Z",
+    //         "updatedAt": "2023-05-06T05:16:23.899Z",
+    //         "publishedAt": "2023-05-06T05:16:23.896Z"
+    //       }
+    //     }
+    //   ],
+    //   "meta": {
+    //     "pagination": {"page": 1, "pageSize": 25, "pageCount": 1, "total": 2}
+    //   }
+    // };
+
+    final locationResponse = await http.get(Uri.parse(
+        'https://strapi-development-6fb1.up.railway.app/api/area-locations'));
+
+    if (locationResponse.statusCode == 200) {
+      // If the server did return a 200 OK response,
+      // then parse the JSON.
+      //
+      Future<List<RecycleResourcePlace>> futureList =
+          Stream.fromIterable(jsonDecode(locationResponse.body)["data"])
+              .asyncMap((item) async {
+        var place = item['attributes'];
+        // log(jsonEncode(place['binList']));
+        var placeID = place['locationID'];
+        final BinResponse = await http.get(Uri.parse(
+            "https://strapi-development-6fb1.up.railway.app/api/locations?filters[locationID][\$eq]=$placeID"));
+        // log("https://strapi-development-6fb1.up.railway.app/api/locations?filters[locationID][\$eq]=$placeID");
+        place['directions'] = jsonDecode(BinResponse.body)["data"].map((json) {
+          // log(jsonEncode(json["attributes"]));
+          String instructions = json["attributes"]["instruction"];
+          // log(instructions);
+          return instructions.split(";");
+        }).toList();
+        // log(jsonEncode(place['directions']));
+        // log(jsonEncode(place['binList']));
+        // log(jsonEncode(place['latitude']));
+        place['binList'] = place['binList'].split(";");
+        RecycleResourcePlace recycleResourcePlace =
+            RecycleResourcePlace.fromJson(place);
+        return recycleResourcePlace;
+      }).toList();
+
+      List<RecycleResourcePlace> result = await futureList;
+      // print(result);
+
+      return result;
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load Location');
+    }
   }
 
   @override

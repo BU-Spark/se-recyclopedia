@@ -3,7 +3,8 @@ import 'package:recyclopedia/global_configuration.dart';
 import 'package:recyclopedia/models/area_location.dart';
 
 /// Provide locations to the map component, currently unused.
-@Deprecated("Non of the components should be using this, use /map_component/place_details.dart instead")
+@Deprecated('use MapState instead')
+
 class LocationProvider extends ChangeNotifier {
   late List<Map<String, dynamic>> locations;
   late List<AreaLocation> allLocations;
@@ -16,6 +17,8 @@ class LocationProvider extends ChangeNotifier {
       return AreaLocation.fromJson(json);
     },).toList();
   }
+
+  /// method that does nothing
   void methodThatDoesNothing() {
     notifyListeners();
   }
