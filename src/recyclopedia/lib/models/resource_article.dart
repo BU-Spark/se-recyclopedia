@@ -1,5 +1,5 @@
 /// A blue print class only for articles in resource page.
-@deprecated('Did not use, for testing only')
+@Deprecated('Did not use, for testing only')
 class ResourceArticle {
   final String title;
 
