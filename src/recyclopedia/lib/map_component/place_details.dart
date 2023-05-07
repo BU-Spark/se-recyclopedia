@@ -134,39 +134,38 @@ class _PlaceDetailsState extends State<PlaceDetails> {
 }
 
 // TODO:implement the thing here to help jump using _Map
-class nearestBin_Map extends StatelessWidget{
+// class nearestBin_Map extends StatelessWidget{
 
-  GoogleMapController? _mapController;
-  late RecycleResourcePlace _place;
-  final Set<Marker> _markers = {};
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      padding: const EdgeInsets.fromLTRB(24.0, 12.0, 24.0, 12.0),
-      children: [
-        _Map(
-          center: _place.latLng,
-          mapController: _mapController,
-          onMapCreated: _onMapCreated,
-          markers: _markers,
-        ),
-      ],
-    );
+//   GoogleMapController? _mapController;
+//   late RecycleResourcePlace _place;
+//   final Set<Marker> _markers = {};
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView(
+//       padding: const EdgeInsets.fromLTRB(24.0, 12.0, 24.0, 12.0),
+//       children: [
+//         _Map(
+//           center: _place.latLng,
+//           mapController: _mapController,
+//           onMapCreated: _onMapCreated,
+//           markers: _markers,
+//         ),
+//       ],
+//     );
     
-  }
+//   }
 
+//   void _onMapCreated(GoogleMapController controller) {
+//     _mapController = controller;
+//       setState(() {
+//       _markers.add(Marker(
+//         markerId: MarkerId(_place.latLng.toString()),
+//         position: _place.latLng,
+//       ));
+//     });
+//   }
 
-  void _onMapCreated(GoogleMapController controller) {
-    _mapController = controller;
-      setState(() {
-      _markers.add(Marker(
-        markerId: MarkerId(_place.latLng.toString()),
-        position: _place.latLng,
-      ));
-    });
-  }
-
-}
+// }
 
 /// This map is independent from the big map, used as a child of other components, only displaying marker on the map for 1 place.
 class _Map extends StatelessWidget {
