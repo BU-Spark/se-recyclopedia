@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recyclopedia/global_configuration.dart';
 import 'package:recyclopedia/models/area_location.dart';
 
+@Deprecated('use MapState instead')
 class LocationProvider extends ChangeNotifier {
   late List<Map<String, dynamic>> locations;
   late List<AreaLocation> allLocations;
@@ -14,6 +15,8 @@ class LocationProvider extends ChangeNotifier {
       return AreaLocation.fromJson(json);
     },).toList();
   }
+
+  /// method that does nothing
   void methodThatDoesNothing() {
     notifyListeners();
   }
