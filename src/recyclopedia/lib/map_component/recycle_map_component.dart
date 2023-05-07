@@ -1,7 +1,3 @@
-/// The recycle_map_component.dart file is the main container of the map component, 
-/// it is responsible for the main layout and initiate the `MapState` class.
-/// The `MapState` class is the most important part in this file, it allows the 
-/// whole project to listen to the change within MapState then make modifications to the outcome 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -22,6 +18,11 @@ enum PlaceTrackerViewType {
   String toJson() => name;
 }
 
+/// The RecycleMapComponent is the main container of the map component, 
+/// it is responsible for the main layout and initiate the `MapState` class.
+/// 
+/// The `MapState` class is the most important part in this file, it allows the 
+/// whole project to listen to the change within MapState then make modifications to the outcome 
 class RecycleMapComponent extends StatelessWidget {
   const RecycleMapComponent({super.key});
 

@@ -3,6 +3,7 @@ import 'package:recyclopedia/map_component/all.dart';
 import 'package:recyclopedia/screens/all.dart';
 import 'package:recyclopedia/screens/campus_map.dart';
 
+/// MainPage hosts all components of the app, including a home page, a map page, and a resources page.
 class MainPage extends StatefulWidget {
   @override
   State<MainPage> createState() => _MainPageState();

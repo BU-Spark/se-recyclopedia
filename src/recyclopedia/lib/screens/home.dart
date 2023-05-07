@@ -5,6 +5,8 @@ import 'package:recyclopedia/providers/category_provider.dart';
 import 'package:recyclopedia/screens/all_categories.dart';
 import 'package:recyclopedia/widgets/all.dart';
 
+
+/// This widget is to render the default home page.
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

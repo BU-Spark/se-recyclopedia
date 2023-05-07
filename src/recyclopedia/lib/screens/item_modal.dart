@@ -5,6 +5,7 @@ import 'package:recyclopedia/map_component/recycle_map_component.dart';
 import 'package:recyclopedia/utils/navigate_to_map.dart';
 import 'package:recyclopedia/widgets/all.dart';
 
+/// ItemModal renders an item when click on a specific item in homepage.
 class ItemModal extends StatelessWidget {
   final String itemName;
   final String itemImage;
