@@ -7,6 +7,8 @@ import 'package:recyclopedia/widgets/all.dart';
 
 // TODO: each section is taking too much vertical space
 // widget for showing all categories in alphabetical groups
+
+/// The screen to show trash of all categories. 
 class AllCategory extends StatelessWidget {
   AllCategory({super.key});
   @override

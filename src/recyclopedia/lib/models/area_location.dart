@@ -11,6 +11,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'area_location.g.dart';
 
+/// This hold the type for arealocations needed for location provider. Currently unused
 @JsonSerializable()
 class AreaLocation{
   /// The generated code assumes these values exist in JSON.
