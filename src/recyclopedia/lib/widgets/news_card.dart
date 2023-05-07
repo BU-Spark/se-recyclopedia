@@ -36,7 +36,7 @@ class NewsCard extends StatelessWidget {
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10)),
-                child: Image.asset(
+                child: Image.network(
                   imgUrl,
                   height: 200,
                   width: MediaQuery.of(context).size.width,

@@ -27,10 +27,10 @@ Future<List<Resource>> getAll() async {
 }
 
 class ResourcesPage extends StatelessWidget {
+  ///store getAll() in a Future, and use a FutureBuilder() to render the data once it arrives
   late final Future<List<Resource>> resources = getAll();
 
   ///For every item pulled from Strapi, render a NewsCard().
-  ///If desired image is not saved in local image file, render a default image instead.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -67,8 +67,7 @@ class ResourcesPage extends StatelessWidget {
                                   shrinkWrap: true,
                                   itemBuilder: (context, index) {
                                     return NewsCard(
-                                      imgUrl:
-                                          'assets/images/${snapshot.data![index].imagePath}',
+                                      imgUrl: snapshot.data![index].imagePath,
                                       desc: snapshot.data![index].description,
                                       title: snapshot.data![index].title,
                                       postUrl: snapshot.data![index].link,
