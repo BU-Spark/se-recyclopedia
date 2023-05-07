@@ -171,56 +171,5 @@ class RecycleResourcePlace {
   /// Connect the generated [_$RecycleResourcePlaceToJson] function to the `toJson` method.
   Map<String, dynamic> toJson() => _$RecycleResourcePlaceToJson(this);
   
-  
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is RecycleResourcePlace &&
-          runtimeType == other.runtimeType &&
-          id == other.id &&
-          latLng == other.latLng &&
-          name == other.name &&
-          category == other.category &&
-          building == other.building &&
-          address == other.address &&
-          bins == other.bins && 
-          image == other.image;
-  // description and direction don't have to be the same
 
-  @override
-  int get hashCode =>
-      id.hashCode ^
-      latLng.hashCode ^
-      name.hashCode ^
-      category.hashCode ^
-      description.hashCode ^
-      directions.hashCode ^
-      building.hashCode ^
-      address.hashCode ^
-      bins.hashCode ^ 
-      image.hashCode;
-}
-
-// https://pub.dev/packages/json_serializable#enums
-@JsonEnum()
-enum PlaceCategory {
-  /// Shows the category of the marker on the map, could be one of the several kinds
-  // TODO: need to discuss with client for how many kinds of resources there are -> change color or marker on map accordingly
-  // recycleTrashBin,
-  // recycleBox,
-  // informationCenter,
-  @JsonValue("binAvailable")
-  binAvailable,
-  @JsonValue("binUnavailable")
-  binUnavailable;
-
-  // id == other.id &&
-  // latLng == other.latLng &&
-  // name == other.name &&
-  // category == other.category &&
-  // building == other.building &&
-  // address == other.address &&
-  // bins == other.bins &&
-  // image == other.image;
-  // description and direction don't have to be the same
 }
