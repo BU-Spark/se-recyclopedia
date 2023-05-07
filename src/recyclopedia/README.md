@@ -15,6 +15,9 @@ export FLUTTER_ROOT=<Your Flutter SDK Path> # usually something like this: ~/...
 $FLUTTER_ROOT/bin/cache/dart-sdk/bin/dart doc .
 ```
 
+### Documentation Guide
+[Effective Dart: Documentation](https://dart.dev/guides/language/effective-dart/documentation)
+
 ## Source File Structure
 ```
 lib
