@@ -40,6 +40,9 @@ samples, guidance on mobile development, and a full API reference.
 
 components gets data from and listens to providers for data updates
 
+### Json serialization
+[JSON and serialization](https://docs.flutter.dev/data-and-backend/json)
+
 ## Getting Started
 
 ### Environment Setup
