@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:recyclopedia/widgets/news_card.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+/// This widget is responsible for rendering the resources page.
 class ResourcesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
