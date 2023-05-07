@@ -150,3 +150,33 @@ More about his project, contact [BU sustainbility](https://www.bu.edu/sustainabi
 To add yourself to the repository, open a Pull Request modifying `COLLABORATORS`, entering your GitHub username in a newline.
 
 All Pull Requests must follow the Pull Request Template, with a title formatted like such `[Project Name]: <Descriptive Title>`
+
+# 🚀 Getting started with Strapi
+
+Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
+
+
+### `Infomation`
+```
+npm run build 
+
+```
+
+```
+ENV_PATH=./.env.production NODE_ENV=producti npm run develop
+
+```
+
+### To add/edit content-type: 
+1. Clone this repo and cd into strapi-se folder
+2. Follow following command: 
+```
+npm run build 
+
+```
+
+```
+ENV_PATH=./.env.production NODE_ENV=producti npm run develop
+
+```
+3. Going to "http://0.0.0.0:1337/admin" to add/edit content type
