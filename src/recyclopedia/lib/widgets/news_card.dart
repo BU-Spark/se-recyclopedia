@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 
+/// One newscard displays one resource to be rendered in Resource screen. 
 class NewsCard extends StatelessWidget {
   //final Image imgUrl;
   final String imgUrl, title, desc, postUrl;

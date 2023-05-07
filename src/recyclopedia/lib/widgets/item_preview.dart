@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Item image box style for used in item_modal.
 class ItemPreview extends Container {
   final Map item;
   // final bool hasLabel;
@@ -32,11 +33,6 @@ class ItemPreview extends Container {
             height: 200,
             fit: BoxFit.contain,
           )),
-          // if(hasLabel)
-          // Text(
-          //   item["name"],
-          //   style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-          // )
         ],
       ),
     );
