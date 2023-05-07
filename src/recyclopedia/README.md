@@ -6,7 +6,18 @@ This folder is the **root folder** of the Flutter project, recyclopedia.
 
 ## API docs
 [API documentation](https://raw.githack.com/BU-Spark/se-recyclopedia/dev/src/recyclopedia/doc/api/index.html)
- 
+
+### How to generate API docs
+```bash
+cd src/recyclopedia/
+flutter pub get
+export FLUTTER_ROOT=<Your Flutter SDK Path> # usually something like this: ~/.../flutter
+$FLUTTER_ROOT/bin/cache/dart-sdk/bin/dart doc .
+```
+
+### Documentation Guide
+[Effective Dart: Documentation](https://dart.dev/guides/language/effective-dart/documentation)
+
 ## Source File Structure
 ```
 lib
