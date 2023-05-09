@@ -31,8 +31,7 @@ samples, guidance on mobile development, and a full API reference.
 
 ### Flutter project folder
 >contains API docs and file structure
-
-[src/recyclopedia](src/recyclopedia)
+Additional technical structure in side [this]((src/recyclopedia)) folder.
 
 ### Dataflow
 >explains the dataflow
