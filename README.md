@@ -143,6 +143,8 @@ To be more specific, make sure that the dianostic from **Flutter Doctor** are re
 1. On the navigation rail, quickly switching between the map section and other sections may cause a bug
 2. After selecting an trash item, there is a "find bin" button at the bottom of the screen. Clicking that button will redirect the user to the map page, but there is no backward button or navigation rail if the map page is reached in such a way, meaning the user is stuck on the map page.
 3. On the home page, for alphabetical categorizing the trash items. Sections will take at least two rows of space even if there are at most one row of contents to display, resulting in extra spaces between sections.
+4. When navigating from map marker to place details, before switch place category, we are able to navigate to tap on map for navigation; however, after switch category, we are not able to do so.
+5. Trash Category is hardcoded, but locations can be fetched from API. (Exact same methods, unknow bug.)
 
 ## Risks and Limitations
 >This section identifies foreseeable harms and misunderstandings...
