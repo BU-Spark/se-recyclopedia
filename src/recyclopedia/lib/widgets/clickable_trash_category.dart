@@ -32,10 +32,11 @@ class ClickableTrashItem extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-                child: Image.asset(
+                child: Image.network(
               item["image"],
+              height: 200,
               fit: BoxFit.contain,
-            )),
+            ),),
             Text(
               item["name"],
               style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
