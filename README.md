@@ -63,6 +63,7 @@ flutter run
 ### Important: To run this sample app, you will need an API key.
 
 Get an API key at <https://cloud.google.com/maps-platform/>.
+Important Notice: put the key in an `.env` file, then refer the key by the environment variable.  
 
 #### Android
 Specify your API key in the application manifest
