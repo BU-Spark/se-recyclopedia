@@ -66,7 +66,6 @@ flutter pub run build_runner build --delete-conflicting-outputs
 Get an API key at <https://cloud.google.com/maps-platform/>.
 
 You might want to put the key in an `.env` file, and exclude it from version control, then refer the key by the environment variable in different platform's code. 
-
 Checkout [this](https://stackoverflow.com/questions/57587190/load-api-key-to-androidmanifest-xml-from-env-file-in-flutter) link.
 
 #### Android
