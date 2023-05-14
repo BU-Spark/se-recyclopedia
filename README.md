@@ -172,6 +172,25 @@ flutter run
 4. Click on the top-right trangle to start.
 ![alt text](./readme_assets/Step%204.png)
 
+## Deployment Plan
+### Deploying to Google Play Store
+Follow [this](https://appinventiv.com/blog/how-to-submit-app-to-google-play-store/) link.
+First, make a .apk file of the project. Follow [this](https://code.tutsplus.com/tutorials/how-to-generate-apk-and-signed-apk-files-in-android-studio--cms-37927) link.
+1. Google Play Developer Console   
+2. Link Developer Account with Google Wallet Merchant Account   
+3. Create Application   
+4. App Store Listing   
+5. Upload App Bundles or APK To Google Play   
+6. Time For Content Rating     
+7. Fix App Pricing and Distribution   
+8. Publish the Application
+
+### Deploying to Apple App Store
+
+Following [this](https://developer.apple.com/ios/submit/) link.  
+
+
+
 ## Known bugs
 1. On the navigation rail, quickly switching between the map section and other sections may cause a bug
 2. After selecting an trash item, there is a "find bin" button at the bottom of the screen. Clicking that button will redirect the user to the map page, but there is no backward button or navigation rail if the map page is reached in such a way, meaning the user is stuck on the map page.
